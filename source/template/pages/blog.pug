@@ -5,10 +5,11 @@ block title
 
 block headerPortfolio
 
-block userInfo
-	h1.title Блог
-		+icon-svg("blog_header").title__bg
-	p.user__text.
+block user
+	+user()
+		h1.title Блог
+			+icon-svg("blog_header").title__bg
+		p.user__text.
 			Личный сайт веб разработчика
 
 block content

@@ -1,0 +1,7 @@
+.arrow-link {
+	display: inline-block;
+
+	svg {
+		@include svg(26px, 16px, #c0d1c8);
+	}
+}

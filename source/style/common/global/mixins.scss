@@ -41,7 +41,7 @@
 	}
 }
 
-@mixin svg($width, $height, $fill) {
+@mixin svg($width, $height, $fill: #000) {
 	width: $width;
 	height: $height;
 	fill: $fill;
@@ -70,7 +70,7 @@
 	vertical-align: $align;
 }
 
-%centered {
+%centered-auto {
 	position: absolute;
 	top: 0;
 	right: 0;

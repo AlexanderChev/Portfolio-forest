@@ -51,7 +51,7 @@ $.gulp.task('build', $.gulp.series(
     'copy:pug',
     'js:foundation',
     'js:process',
-    'copy:image',
+    'imagemin',
     'copy:font',
     'copy:manifest',
     'css:foundation',

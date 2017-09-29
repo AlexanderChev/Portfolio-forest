@@ -1,0 +1,110 @@
+.header {
+	position: relative;
+	height: 100vh;
+	min-height: 650px;
+}
+
+.header__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: #84adad url("../img/header-bg-desktop.jpg") center center no-repeat;
+	background-size: cover;
+
+	@include tablet {
+		background: #84adad url("../img/header-bg-tablet.jpg") center center no-repeat;
+	}
+
+	@include mobile {
+		background: #84adad url("../img/header-bg-mobile.jpg") center center no-repeat;
+		background-size: cover;
+	}
+}
+
+.header__top {
+	@extend %container;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 25px 0;
+}
+
+.header__menu {
+	position: relative;
+
+	&:after,
+	&:before  {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 1000;
+		width: 0;
+		background-color: rgba($bg-btn, 0.87);
+		transition: 0.4s;
+	}
+
+	&:after {
+		right: 0;
+	}
+	&:before {
+		left: 0;
+	}
+
+	&--active {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		width: 100%;
+		height: 100%;
+
+		.header__nav {
+			display: block;
+		}
+
+		&:after,
+		&:before {
+			width: 50%;
+		}
+	}
+
+}
+
+.header__middle {
+	margin-top: 75px;
+	text-align: center;
+}
+
+.header__user {
+	margin-bottom: 90px;
+}
+
+.header__triangle {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+	width: 100%;
+	fill: #fff;
+}
+
+.header__bg-pic {
+	@include centered-align(horizontal);
+	top: 14%;
+	z-index: -1;
+	@include svg(90%, 313px, #fff);
+	width: 90%;
+	height: 313px;
+	fill: #ffffff;
+	opacity: 0.12;
+
+	@include mobile {
+		display: none;
+	}
+}

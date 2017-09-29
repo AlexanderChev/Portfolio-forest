@@ -1,5 +1,13 @@
 .user {
 	text-align: center;
+
+	&--size-big .user__name {
+		font-size: 35px;
+
+		@include mobile {
+			font-size: 21px;
+		}
+	}
 }
 
 .user__wrap-avatar {

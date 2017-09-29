@@ -17,18 +17,19 @@
 	}
 }
 
-.social__icon {
-	transition: 0.4s;
-}
-
 .social__icon--vk {
-	@include svg(31px, 17px, $bg-social);
+	@include svg(31px, 17px);
 }
 
 .social__icon--github {
-	@include svg(26px, 22px, $bg-social);
+	@include svg(26px, 22px);
 }
 
 .social__icon--in {
-	@include svg(24px, 22px, $bg-social);
+	@include svg(24px, 22px);
+}
+
+.social__icon {
+	fill: $bg-social;
+	transition: 0.4s;
 }

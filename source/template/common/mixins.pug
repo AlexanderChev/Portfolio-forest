@@ -27,3 +27,16 @@ mixin title(element, bg)
 		block
 		if bg
 			+icon-svg(bg)(class=`title__bg title__bg_${bg}`)
+
+mixin user()
+	.user(class=attributes.class)
+		.user__wrap-avatar
+			img.user__avatar(src="./assets/img/Me.jpg", alt="Александр Егоричев" width="141" height="141")
+		if block
+			block
+		else
+			span.user__name.
+				Александр Егоричев
+			p.user__text.
+				Личный сайт веб разработчика
+

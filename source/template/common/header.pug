@@ -3,12 +3,13 @@ header.header
 	.header__top
 		.header__social
 			+social(socialList)
-		nav.header__nav
-			+nav(navList)(class="navigation")
-			a.toggle
+		nav.header__menu
+			+nav(navList)(class="header__nav navigation--column")
+			a.toggle(href="#")
 				span.toggle__line
 	.header__middle
-		include user
+		block user
+			+user()(class="header__user user--size-big")
 
 		block headerPortfolio
 			+icon-svg("portfolio_header").header__bg-pic

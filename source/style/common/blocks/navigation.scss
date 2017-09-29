@@ -1,0 +1,43 @@
+.navigation {
+	display: none;
+
+	&--column {
+		@extend %block-center;
+		z-index: 10000;
+		text-align: center;
+
+		.navigation__item {
+			margin-bottom: 85px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.navigation__link {
+			position: relative;
+			font-family: $ff2;
+			font-size: 9vmin;
+			text-transform: uppercase;
+
+			&:after {
+				content: "";
+				bottom: -25px;
+				@include centered-align(horizontal);
+				width: 40%;
+				height: 3px;
+				background-color: #ffffff;
+				transition: 0.4s;
+				transform: translateX(-50%) scale(0);
+			}
+
+			&:hover:after {
+				transform: translateX(-50%) scale(1);
+			}
+		}
+	}
+}
+
+.navigation__link {
+	color: $c-light;
+}
