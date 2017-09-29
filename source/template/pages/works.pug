@@ -1,0 +1,62 @@
+extends ../page
+
+block title
+	title Мои работы
+
+block variables
+	-
+		var href = "works"
+
+
+block content
+	section.works#works
+		h1.title Мои работы
+			+icon-svg("works_header").title_bg
+
+		include ../common/slider
+
+	section.reviews
+		.reviews__leaf-1
+		.reviews__leaf-2
+		.reviews__leaf-3
+		h2.title
+			+icon-svg("about_header").title_bg
+
+		ul.reviews__list
+				each item, i in reviews
+					li.reviews__item
+						article.review
+							+icon-svg("quote").review__icon-quote
+							blockquote.review__text= item.text
+							.review__img-wrap
+								img(src=`${item.img}` alt=`${item.name}`)
+							.review__author-wrap
+								cite.review__author-name= item.name
+								span.review__author-info= item.info
+
+
+		.reviews__feedback
+			.feedback
+				.feedback__blur
+				h3.title Связаться со мной
+				form.feedback__form#feedback(method="POST")
+					input.feedback__input-text.field(
+						type="text"
+						name="name"
+						id="field-name"
+						placeholder="Имя"
+						required)
+					input.feedback__input-text.field(
+						type="email"
+						name="email"
+						id="field-email"
+						placeholder="Email"
+						required)
+					textarea.feedback__textarea.field(
+						type="text"
+						name="message"
+						id="field-message"
+						placeholder="Ваше сообщение"
+						required)
+					input.feedback__btn.feedback__btn--submit(type="submit" value="Отправить")
+					input.feedback__btn.feedback__btn--reset(type="reset" value="Очистить")

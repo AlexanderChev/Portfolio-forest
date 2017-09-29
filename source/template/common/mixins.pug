@@ -1,0 +1,29 @@
+mixin icon-svg(id)
+	svg&attributes(attributes)
+		use(xlink:href=`#${id}`)
+
+mixin social(items)
+	ul.social
+		each id, title in items
+			li.social__item
+				a.social__link(href="" target="_blank")= title
+					+icon-svg(id)(class=`social__icon social__icon--${id}`)
+
+mixin list(items)
+	ul(class=attributes.class)
+		each href, title in items
+			li(class=`${attributes.class}__item`)
+				a(class=`${attributes.class}__link` href=href)= title
+
+mixin nav(items)
+	ul.navigation(class=attributes.class)
+		each href, title in items
+			li.navigation__item
+				a.navigation__link(href=href)= title
+
+mixin title(element, bg)
+	if block
+	#{element}.title(class=attributes.class)
+		block
+		if bg
+			+icon-svg(bg)(class=`title__bg title__bg_${bg}`)

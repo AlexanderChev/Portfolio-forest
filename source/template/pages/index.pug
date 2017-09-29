@@ -1,0 +1,72 @@
+extends ../layout
+
+block title
+    title Личный сайт веб разработчика
+
+block content
+    .welcome
+        a.welcome__btn.btn(href='#') Авторизоваться
+        .authorization.welcome__authorization
+            .authorization__front
+                .authorization__content
+                    include ../common/user
+                    +social(socialList)
+                .authorization__nav
+                    a.authorization__nav-link(href="#") Мои работы
+                    a.authorization__nav-link(href="#") Обо мне
+                    a.authorization__nav-link(href="#") Блог
+            .authorization__back
+                form.authorization__form(method="POST" id="authorization")
+                    .authorization__content
+                        h2.title.authorization__title Авторизуйтесь
+                        label.authorization__label(for="login")
+                            input.authorization__input-text.field(
+                                type="text"
+                                name="login"
+                                id="login"
+                                placeholder="Логин"
+                                required)
+                            .authorization__icon-wrap
+                                +icon-svg('login')(class="authorization__icon authorization__icon-login")
+
+                        label.authorization__label(for="password")
+                            input.authorization__input-text.field(
+                                type="password"
+                                name="password"
+                                id="password"
+                                placeholder="Пароль"
+                                required)
+                            .authorization__icon-wrap
+                                +icon-svg("password")(class="authorization__icon authorization__icon-password")
+
+                        input.authorization__input-checkbox(
+                            type="checkbox"
+                            name="isHuman"
+                            id="is-human"
+                            required)
+                        label.authorization__label-checkbox.checkbox(for="is-human") Я человек
+
+                        p.authorization__text Вы точно не робот?
+
+                        input.authorization__input-radio(
+                            type="radio"
+                            name="captcha"
+                            id="norobot-yes"
+                            required)
+                        label.authorization__label-radio.radio(for="norobot-yes") Да
+
+                        input.authorization__input-radio(
+                            type="radio"
+                            name="captcha"
+                            id="norobot-no"
+                            required
+							checked)
+                        label.authorization__label-radio.radio(for="norobot-no") Нет
+
+                    .authorization__nav
+                        a.authorization__nav-link(href="#") На главную
+                        input.authorization__nav-link(type="submit" value="Войти")
+
+        .welcome__footer
+            p.welcome__footer-copyrigth &#169; Александр Егоричев | создано с любовью в LoftSchool | 2016
+

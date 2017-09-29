@@ -1,0 +1,130 @@
+.authorization {
+	position: relative;
+	width: 380px;
+	transform-style: preserve-3d;
+	transition: 1s;
+
+	@include tablet {
+		width: 350px;
+	}
+
+	@include mobile {
+		width: 300px;
+	}
+
+	&--flip {
+		transform: rotateY(180deg);
+	}
+  }
+
+.authorization__front,
+.authorization__back {
+	border-radius: 5px;
+	overflow: hidden;
+	backface-visibility: hidden;
+}
+
+.authorization__front {
+	position: relative;
+	z-index: 20;
+}
+
+.authorization__back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transform: rotateY(180deg);
+	z-index: 10;
+}
+
+.authorization__content {
+	padding: 35px 20px;
+	text-align: center;
+	background-color: $bg-auth;
+}
+
+.authorization__title {
+	margin-bottom: 60px;
+}
+
+.authorization__label {
+	position: relative;
+	display: flex;
+	padding-left: 45px;
+	margin-bottom: 20px;
+}
+
+input.authorization__input-text {
+	border-radius: 0 50px 50px 0;
+
+	&:focus + .authorization__icon-wrap svg {
+		fill: $bg-btn;
+	}
+}
+.authorization__icon-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 45px;
+	height: 45px;
+	background-color: #f0efe9;
+	border-radius: 50px 0 0 50px;
+}
+
+.authorization__icon {
+	@extend %block-center;
+	transition: $dur-hover;
+}
+
+.authorization__icon-login {
+	@include svg(15px, 17px, $bg-social);
+}
+
+.authorization__icon-password {
+	@include svg(18px, 17px, $bg-social);
+}
+
+.authorization__input-checkbox,
+.authorization__input-radio {
+	display: none;
+}
+
+.authorization__text {
+	font-size: 16px;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.authorization__label-radio {
+	margin-right: 35px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.authorization__nav {
+	display: flex;
+}
+
+.authorization__nav-link {
+	flex-grow: 1;
+	padding: 5px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 2.25;
+	color: #ffffff;
+	background-color: $bg-btn;
+	border-right: 2px solid #a0b99e;
+	transition: $dur-hover;
+
+	&:hover {
+		background-color: $bg-hover;
+	}
+
+	&:last-child {
+		border-right: none;
+	}
+}

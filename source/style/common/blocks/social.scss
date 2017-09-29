@@ -1,0 +1,34 @@
+.social {
+	margin-left: -25px;
+	text-align: center;
+}
+
+.social__item {
+	@include i-b(middle);
+	margin-left: 25px;
+}
+
+.social__link {
+	display: block;
+	font-size: 0;
+
+	&:hover .social__icon{
+		fill: $bg-hover;
+	}
+}
+
+.social__icon {
+	transition: 0.4s;
+}
+
+.social__icon--vk {
+	@include svg(31px, 17px, $bg-social);
+}
+
+.social__icon--github {
+	@include svg(26px, 22px, $bg-social);
+}
+
+.social__icon--in {
+	@include svg(24px, 22px, $bg-social);
+}

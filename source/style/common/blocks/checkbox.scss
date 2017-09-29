@@ -1,0 +1,42 @@
+.checkbox {
+	position: relative;
+	@include i-b(top);
+	padding-left: 30px;
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: left;
+	color: rgba(255, 255, 255, 0.8);
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0px;
+		left: 0;
+		width: 21px;
+		height: 21px;
+		background-color: #ffffff;
+		border: 1px solid #d6d6d6;
+		border-radius: 2px;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0px;
+		left: 0;
+		width: 21px;
+		height: 21px;
+		background-color: $bg-btn;
+		background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAFxJREFUGJWN0FENgDAMRdFamAUs4GkWMDkLs4CFwwcsgQXYXtL0o/cmbQMxqITt6jEDF2cK0iwMO5bAioo8gNe20n4b5D+4Cdkz9Qu+H91Lr3D/pTyCe6FJ5QtGHCpUaJUjVtJtAAAAAElFTkSuQmCC');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 12px 10px;
+		border-radius: 2px;
+		transform: scale(0);
+		transition: background-color 1s, transform 0.1s;
+	}
+}
+
+input[type="checkbox"]:checked + .checkbox:after {
+	transform: scale(1);
+}

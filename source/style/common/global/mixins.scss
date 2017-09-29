@@ -1,0 +1,81 @@
+@mixin desktop {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: 480px) {
+		@content;
+	}
+}
+
+%container {
+	width: 95%;
+	max-width: 1800px;
+	margin: 0 auto;
+
+	@include  tablet {
+		width: 94%;
+	}
+
+	@include mobile {
+		width: 93%;
+	}
+}
+
+%clearfix {
+	&:after, &:before {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin svg($width, $height, $fill) {
+	width: $width;
+	height: $height;
+	fill: $fill;
+}
+
+%block-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin centered-align($align) {
+	@if $align == vertical {
+		top: 50%;
+		transform: translateY(-50%);
+	} @else if $align == horizontal {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	position: absolute;
+}
+
+@mixin i-b($align) {
+	display: inline-block;
+	vertical-align: $align;
+}
+
+%centered {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	margin: auto;
+}
