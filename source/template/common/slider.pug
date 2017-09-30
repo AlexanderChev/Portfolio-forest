@@ -1,15 +1,18 @@
 .slider
 	.slider__display
-		img(src="#", alt="")
+		img(src="./assets/img/works/2.png", alt="")
 	.slider__info
-		h3.title.slider__title Сайт школы онлайн Образования
-		.slider__skills HTML , CSS, JAVASCRIPT
-		a.btn.slider__btn(href="#")
-			+icon-svg("link").btn__icon
-			|Посмотреть сайт
+		.slider__content-wrap
+			h3.title.title--color-dark.title--sub.slider__title Сайт школы онлайн Образования
+			.slider__skills HTML , CSS, JAVASCRIPT
+			a.btn.btn--bg-green.slider__btn(href="#")
+				+icon-svg("link").btn__icon
+				|Посмотреть сайт
 	.slider__controls
 		a(href='#' class='slider__controls-item slider__controls-item--prev')
+			img(src="./assets/img/works/1.png", alt="")
 			+icon-svg("arrow_down").slider__controls-icon
 		a(href='#' class='slider__controls-item slider__controls-item--next')
+			img(src="./assets/img/works/3.png", alt="")
 			+icon-svg("arrow_down").slider__controls-icon
 

@@ -17,3 +17,8 @@
 		border-color: $bg-btn;
 	}
 }
+
+textarea.field {
+	border-radius: 20px;
+	resize: none;
+}

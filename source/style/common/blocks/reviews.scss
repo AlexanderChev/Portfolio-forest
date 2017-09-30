@@ -1,0 +1,46 @@
+.reviews {
+	padding-bottom: 208px;//TODO:определение высоты футера на js
+	text-align: center;
+	background: #ffffff url("../img/reviews-bg-desktop.jpg") no-repeat center bottom;
+	background-size: cover;
+
+	@include tablet {
+		background-image: url("../img/reviews-bg-tablet.jpg");
+	}
+
+	@include mobile {
+		background-image: url("../img/reviews-bg-mobile.jpg");
+	}
+}
+
+.reviews__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	@include mobile {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.reviews__item {
+	width: 46%;
+	max-width: 380px;
+	margin: 0 12px;
+	margin-bottom: 40px;
+
+	@include tablet {
+		width: 45%;
+	}
+
+	@include mobile {
+		width: 100%;
+	}
+}
+
+.reviews__list,
+.reviews__feedback,
+.reviews__arrow-link {
+	margin-bottom: 70px;
+}

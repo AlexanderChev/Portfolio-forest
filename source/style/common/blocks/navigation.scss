@@ -1,5 +1,4 @@
 .navigation {
-	display: none;
 
 	&--column {
 		@extend %block-center;
@@ -34,6 +33,26 @@
 			&:hover:after {
 				transform: translateX(-50%) scale(1);
 			}
+		}
+	}
+
+	&--inline {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.navigation__item {
+			margin-right: 10px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.navigation__link {
+			font-weight: 500;
+			line-height: 1.5;
+			color: #ffffff;
 		}
 	}
 }

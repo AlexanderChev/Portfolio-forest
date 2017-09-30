@@ -1,6 +1,16 @@
 .social {
 	margin-left: -25px;
 	text-align: center;
+
+	&--gray {
+		.social__link:hover .social__icon{
+			fill: #ffffff;
+		}
+
+		.social__icon {
+			fill: rgba(#ffffff, 0.5);
+		}
+	}
 }
 
 .social__item {

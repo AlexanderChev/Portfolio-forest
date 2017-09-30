@@ -1,0 +1,20 @@
+.feedback {
+	position: relative;
+	@include i-b(top);
+	width: 380px;
+	height: 461px;
+	background-color: rgb(218, 219, 214);
+	border-radius: 5px;
+}
+
+h3.feedback__title {
+	font-size: 35px;
+
+	@include tablet {
+		font-size: 35px;
+	}
+
+	@include mobile {
+		font-size: 20px;
+	}
+}

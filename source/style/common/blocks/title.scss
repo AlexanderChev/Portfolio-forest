@@ -1,18 +1,57 @@
 .title {
 	position: relative;
-	margin-bottom: 60px;
+	@include i-b(top);
+	margin: 70px 0;
 	font-family: $ff2;
-	font-size: 35px;
+	font-size: 63px;
 	line-height: 1.17;
+	text-transform: uppercase;
 	text-align: center;
-	color: #ffffff;
+	color: $c-light;
+
+	@include tablet {
+		font-size: 49px;
+	}
+
+	@include mobile {
+		font-size: 35px;
+	}
 
 	&:after {
 		content: "";
 		bottom: -25px;
 		@include centered-align(horizontal);
-		width: 40%;
+		width: 30%;
 		height: 3px;
-		background-color: #ffffff;
+		background-color: $c-light;
 	}
+
+	&--sub {
+		font-size: 35px;
+		margin: 0;
+		margin-bottom: 40px;
+
+		@include tablet {
+			font-size: 30px;
+		}
+
+		@include mobile {
+			font-size: 21px;
+		}
+	}
+	&.title--color-dark {
+		color: $c-text;
+
+		&:after {
+			background-color: $c-text;
+		}
+	}
+}
+
+.title__bg {
+	@extend %block-center;
+	z-index: -1;
+	width: 150%;
+	height: auto;
+	fill: rgba($bg-title, 0.2);
 }

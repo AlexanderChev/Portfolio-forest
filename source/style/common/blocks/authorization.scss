@@ -44,8 +44,14 @@
 	background-color: $bg-auth;
 }
 
-.authorization__title {
+h2.authorization__title {
+	margin-top: 0;
 	margin-bottom: 60px;
+	font-size: 35px;
+
+	@include mobile {
+		font-size: 30px;
+	}
 }
 
 .authorization__label {
