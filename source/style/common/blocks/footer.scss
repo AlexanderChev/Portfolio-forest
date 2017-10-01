@@ -1,70 +1,67 @@
 .footer {
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	flex: 0 0 auto;
 	margin-top: -208px;
 	background-color: rgba(#373e42, 0.85);
-}
-
-.footer__top {
-	@extend %container;
-	display: flex;
-	padding-top: 30px;
-	padding-bottom: 30px;
 
 	@include tablet {
-		flex-wrap: wrap;
-	}
-
-	@include mobile {
 		flex-direction: column;
-		padding: 0;
 	}
 }
 
 .footer__section {
+	position: relative;
 	width: 33.3%;
-	padding: 0 30px;
+	flex: 1 0 400px;
+	padding: 30px;
 	text-align: left;
-	border-left: 1px solid rgba(#ffffff, 0.2);
 
-	&:first-child {
-		border-left: none;
+	&--1:after,
+	&--2:after {
+		content: "";
+		position: absolute;
+		top: 35px;
+		right: 0;
+		width: 1px;
+		height: 60%;
+		background-color: rgba(#ffffff, 0.2);
 	}
 
 	@include tablet {
-		flex-grow: 1;
-
-		&:last-child {
-			width: 100%;
-			margin-top: 30px;
-			border-left: none;
-		}
-	}
-	//TODO: другой подход без footer__top
-	@include mobile {
 		width: 100%;
-		padding: 20px 0;
+		flex: 1 0 auto;
 		text-align: center;
-		border-left: none;
-		border-bottom: 1px solid rgba(#ffffff, 0.2);
 
-		&:last-child {
-			border: none;
-			margin: 0;
+		&--1:after,
+		&--2:after {
+			top: auto;
+			bottom: 0;
+			right: 10px;
+			left: 10px;
+			width: auto;
+			height: 1px;
+		}
+
+		&--2:after {
+			height: 2px; //bug
 		}
 	}
 }
 
 .footer__text {
-	margin: 0;
 	font-weight: 300;
 	line-height: 1.5;
 	color: #ffffff;
 }
 
-.footer__nav {
+ul.footer__nav {
 	margin-bottom: 25px;
+
+	@include mobile {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 .footer__social {
@@ -87,7 +84,6 @@
 
 .footer__copyright {
 	width: 100%;
-	margin: 0;
 	padding: 10px;
 	font-weight: 300;
 	line-height: 1.5;
