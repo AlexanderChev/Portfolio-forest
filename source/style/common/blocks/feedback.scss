@@ -1,13 +1,5 @@
-.feedback {
-	position: relative;
-	@include i-b(top);
-	width: 380px;
-	height: 461px;
-	background-color: rgb(218, 219, 214);
-	border-radius: 5px;
-}
-
 h3.feedback__title {
+	margin-top: 0;
 	font-size: 35px;
 
 	@include tablet {
@@ -17,4 +9,12 @@ h3.feedback__title {
 	@include mobile {
 		font-size: 20px;
 	}
+}
+
+.feedback__input-text {
+	margin-bottom: 20px;
+}
+
+textarea.feedback__textarea {
+	height: 140px;
 }

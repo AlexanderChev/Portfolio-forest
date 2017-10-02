@@ -19,6 +19,7 @@
 }
 
 textarea.field {
+	min-height: 140px;
 	border-radius: 20px;
-	resize: none;
+	resize: vertical;
 }

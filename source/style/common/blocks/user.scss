@@ -20,12 +20,28 @@
 	overflow: hidden;
 }
 
+.user__avatar {
+	width: 100%;
+	height: auto;
+}
+
 .user__name {
 	margin-bottom: 10px;
 	font-size: 28px;
 	font-weight: 500;
 	line-height: 1.21;
 	color: #ffffff;
+}
+
+.user__title {
+	margin-top: 30px;
+	margin-bottom: 63px;
+
+	svg {
+		width: 200%;
+		height: 200px;
+		fill: rgba(#fff, 0.12);
+	}
 }
 
 .user__text {

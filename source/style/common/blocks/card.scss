@@ -1,0 +1,47 @@
+.card {
+	position: relative;
+	@include i-b(top);
+	width: 380px;
+	border-radius: 5px;
+	overflow: hidden;
+	background: $bg-auth;
+
+	@include tablet {
+		width: 350px;
+	}
+
+	@include mobile {
+		width: 300px;
+	}
+}
+
+.card__content {
+	padding: 40px 20px 20px;
+	text-align: center;
+}
+
+.card__btn-wrap {
+	display: flex;
+}
+
+.card__btn {
+	flex-grow: 1;
+	padding: 5px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 2.25;
+	color: #ffffff;
+	background-color: $bg-btn;
+	border: none;
+	border-right: 2px solid #a0b99e;
+	transition: $dur-hover;
+
+	&:hover {
+		background-color: $bg-hover;
+	}
+
+	&:last-child {
+		border-right: none;
+	}
+}

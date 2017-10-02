@@ -1,8 +1,9 @@
 .reviews {
+	margin-bottom: -208px;
 	padding-bottom: 208px;//TODO:определение высоты футера на js
 	text-align: center;
-	background: #ffffff url("../img/reviews-bg-desktop.jpg") no-repeat center bottom;
-	background-size: cover;
+	background: #f4f5f0 url("../img/reviews-bg-large.jpg") no-repeat center bottom;
+	background-size: auto;
 
 	@include tablet {
 		background-image: url("../img/reviews-bg-tablet.jpg");

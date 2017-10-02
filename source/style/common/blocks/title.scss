@@ -8,6 +8,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	color: $c-light;
+	z-index: 10;
 
 	@include tablet {
 		font-size: 49px;
@@ -44,6 +45,13 @@
 
 		&:after {
 			background-color: $c-text;
+		}
+	}
+	&.title--color-sage {
+		color: $c-sage;
+
+		&:after {
+			background-color: $c-sage;
 		}
 	}
 }

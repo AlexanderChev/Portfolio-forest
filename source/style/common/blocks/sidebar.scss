@@ -1,0 +1,82 @@
+.sidebar {
+	text-align: right;
+
+	@include desktop-only {
+		position: fixed;
+		top: 0;
+		left: -285px;
+		z-index: 100;
+		bottom: 0;
+		width: 285px;
+		background-color: $bg-btn;
+
+		&--active {
+			left: 0;
+			box-shadow: 3px 0 3px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	@include desktop {
+		width: 300px;
+	}
+}
+
+.sidebar__toggle {
+	position: absolute;
+    top: 50%;
+    right: -9px;
+    z-index: 1;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    background-color: $bg-btn;
+    border-radius: 50%;
+    box-shadow: 3px 0 3px rgba(0, 0, 0, 0.2);
+	transition: 0.4s;
+
+	@include desktop {
+		display: none;
+	}
+}
+
+.sidebar__list {
+	@include desktop-only {
+		@include centered-align(vertical);
+		right: 0;
+		z-index: 10;
+		background-color: $bg-btn;
+	}
+}
+
+.sidebar__link {
+	display: block;
+	padding: 8px 17px;
+	line-height: 1.63;
+	text-align: right;
+	color: $c-sage;
+	transition: 0.4s;
+
+	&:hover {
+		color: $bg-hover;
+	}
+
+	&--active {
+		font-weight: 700;
+		color: $bg-hover;
+		border-right: 3px solid #6c9c5a;
+	}
+
+	@include desktop-only {
+		color: rgba(#fff, 0.7);
+
+		&:hover {
+			color: $c-light;
+		}
+
+		&--active {
+			color: $c-light;
+		}
+	}
+
+}

@@ -262,7 +262,7 @@ body {
 
 .container {
 	@extend %container;
-	// @extend %clearfix;
+	@extend %clearfix;
 }
 
 img {
@@ -284,5 +284,4 @@ ul {
 input[type='submit'],
 input[type='reset'] {
 	outline: none;
-	border: none;
 }

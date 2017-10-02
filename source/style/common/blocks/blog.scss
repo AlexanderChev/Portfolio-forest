@@ -1,0 +1,49 @@
+.blog {
+	display: flex;
+	justify-content: center;
+	padding-top: 50px;
+}
+
+.blog__sidebar {
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	width: 0;
+
+	@include desktop {
+		width: 30%;
+	}
+}
+
+.blog__articles {
+	width: 100%;
+	padding: 0 25px;
+
+	@include desktop {
+		width: 70%;
+		padding-left: 100px;
+	}
+
+	@include mobile {
+		padding: 0 10px;
+	}
+}
+
+.blog__article {
+	margin-bottom: 50px;
+
+	@include desktop {
+		width: 84%;
+		max-width: 980px;
+		margin-bottom: 70px;
+	}
+
+	@include tablet {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	@include mobile {
+		margin-bottom: 30px;
+	}
+}
