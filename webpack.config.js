@@ -1,13 +1,14 @@
 'use strict';
 
 const webpack = require('webpack');
+const isDevelopment = process.env.NODE_ENV || 'development';
 
 module.exports = {
   babelrc: true,
   output: {
     filename: 'app.js'
   },
-  devtool: 'source-map',
+  devtool: isDevelopment == 'development' ? 'eval': null,
   module: {
     loaders: [{
       test: /\.js$/,
@@ -18,8 +19,8 @@ module.exports = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      },
+		warnings: false
+	  },
       output: {
         comments: false
       }

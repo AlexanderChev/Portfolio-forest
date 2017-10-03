@@ -13,6 +13,7 @@ global.$ = {
   rimraf: require('rimraf'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')(),
+  mmq: require('gulp-merge-media-queries'),
   fs: require('fs'),
   webpack: require('webpack-stream'),
   webpackConfig: require('./webpack.config'),
