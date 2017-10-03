@@ -3,21 +3,27 @@ extends ../page
 block title
 	title Обо мне
 
+block triangle-header
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle">
+		<polygon class = 'header__triangle-left header__triangle--bg-gray' points='0,0   0,86   500.8,86   500.8,75.5'></polygon>
+		<polygon class = 'header__triangle-right header__triangle--bg-light' points='1000,0   1000,86   500,86   500,75.5'></polygon>
+
 block content
 	section.about
 		.about__user
+			h1.title.title--color-dark.about__user-title Обо мне
+					+icon-svg("about_header").title__bg
 			.biography
-				h1.title Обо мне
-				+icon-svg("about_header").title__bg
 				.biography__wrap-img
 					img(src="./assets/img/Me.jpg", alt="")
-				h2.title.title--small Кто я
-				p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-				p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+				.biography__content
+					h2.title.title--color-sage.title--sub Кто я
+					p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+					p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
 		.about__skills
 			.skills
-				h2.title.title--small
+				h2.title.title--sub.title--color-sage Чем я могу быть<br> вам полезен
 				p.skills__text  Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
 				each item in skillsList
 					.skills__group
@@ -25,32 +31,33 @@ block content
 						ul.skills__list
 							each val in item.name
 								li.skills__item
-									.circle-progress
-										svg.circle-progress__img(viewBox="0 0 220 220")
-											circle(class="circle-progress__outer" cx="110" cy="110" r="100")
-											circle(class="circle-progress__inner" cx="110" cy="110" r="110")
+									.circle-progress(data-percent="58" data-time="2000")
+										svg.circle-progress__pic
+											circle(class="circle-progress__item circle-progress__item--outer" cx="50%" cy="50%" r="50%")
+											circle(class="circle-progress__item circle-progress__item--inner" cx="50%" cy="50%" r="50%")
 										span.circle-progress__name= val
 
 	section.contacts
 		.contacts__map#map
-		.contacts__address
-			address.address
-				h2.title.title--small Контакты
-				ul.address__list
-					li.address__item
-						span.address__icon
-							+icon-svg("skype")
-						a(class="address__link" href="skype:Alexander Chev" target="_blank") Alexander Chev
+			.card.contacts__card
+				.card__content
+					h2.card__title.title.title--color-sage Контакты
+					address.address
+						ul.address__list
+							li.address__item
+								span.address__icon
+									+icon-svg("skype")
+								a(class="address__link" href="skype:Alexander Chev" target="_blank") Alexander Chev
 
-					li.address__item
-						span.address__icon
-							+icon-svg("envelope")
-						a(class="address__link" href="mailto:alexchev92@gmail.com" target="_blank") alexchev92@gmail.com
-					li.address__item
-						span.address__icon
-							+icon-svg("phone")
-						a(class="address__link" href="tel:89108189723" target="_blank") 8 910 818 97 23
-					li.address__item
-						span.address__icon
-							+icon-svg("map_marker")
-						a.address__link Ярославль
+							li.address__item
+								span.address__icon
+									+icon-svg("envelope")
+								a(class="address__link" href="mailto:alexchev92@gmail.com" target="_blank") alexchev92@gmail.com
+							li.address__item
+								span.address__icon
+									+icon-svg("phone")
+								a(class="address__link" href="tel:89108189723" target="_blank") 8 910 818 97 23
+							li.address__item
+								span.address__icon
+									+icon-svg("map_marker")
+								a.address__link Ярославль

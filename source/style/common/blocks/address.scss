@@ -1,0 +1,26 @@
+.address__list {
+	text-align: left;
+	padding-left: 20px;
+}
+
+.address__item {
+	margin-bottom: 20px;
+}
+
+.address__icon {
+	@include i-b(middle);
+	margin-right: 10px;
+
+	svg {
+		width: 24px;
+		height: 24px;
+		fill: $bg-btn;
+	}
+}
+
+.address__link {
+	font-weight: 500;
+	font-style: normal;
+	line-height: 1.5;
+	color: #5f5a55;
+}

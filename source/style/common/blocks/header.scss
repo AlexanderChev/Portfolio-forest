@@ -2,6 +2,14 @@
 	position: relative;
 	height: 100vh;
 	min-height: 650px;
+
+	@include tablet {
+		min-height: 520px;
+	}
+
+	@include mobile {
+		min-height: 560px;
+	}
 }
 
 .header__bg {
@@ -99,6 +107,18 @@
 	z-index: 0;
 	width: 100%;
 	fill: #fff;
+
+	&--bg-gray {
+		fill: #ebefe2;
+	}
+
+	&--bg-light {
+		fill: #f4f5f0;
+
+		@include desktop-only {
+			fill: #ebefe2
+		}
+	}
 }
 
 .header__bg-pic {
@@ -113,5 +133,14 @@
 
 	@include mobile {
 		display: none;
+	}
+}
+
+.header__arrow-link {
+	@include centered-align(horizontal);
+	bottom: 80px;
+
+	@include desktop-only {
+		bottom: 60px;
 	}
 }
