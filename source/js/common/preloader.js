@@ -1,9 +1,9 @@
 'use strict';
-var pagePreloader = (function () {
+export default function preloader() {
     var percentsTotal = 1,
         preloader = $('.preloader');
 
-    $(preloader).removeClass('preloader--nojs');
+    $(preloader).removeClass('preloader--no-js');
 
     var imgPath = $('*').map(function (index, element) {
         var background =  $(element).css('background-image'),
@@ -24,7 +24,7 @@ var pagePreloader = (function () {
     var _setPercents = function (total, current) {
         var percents = Math.ceil(current / total * 100);
 
-        $('.preloader__percents').text(percents + '%');
+        $('.preloader__progress').text(percents + '%');
 
         if (percents>=100) {
             preloader.fadeOut();
@@ -47,15 +47,8 @@ var pagePreloader = (function () {
                 percentsTotal++;
             });
         });
-    };
+	};
 
-
-    return {
-        init: function () {
-            var imgs = imgPath.toArray();
-            _loadImages(imgs);
-        }
-    }
-})();
-
-pagePreloader.init();
+	var imgs = imgPath.toArray();
+	_loadImages(imgs);
+};

@@ -1,12 +1,12 @@
 .toggle {
 	position: relative;
-	z-index: 10000;
+	z-index: 1100;
 	display: block;
 	width: 40px;
 	height: 35px;
 	transition: 0.4s;
 
-	&--active {
+	&.open {
 		position: fixed;
 		top: 25px;
 		right: 25px;

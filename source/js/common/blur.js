@@ -1,30 +1,23 @@
 'use strict';
-var blur = (function () {
-    var bgBlur = $('.feedback__blur'),
-        blurSection = $('.reviews');
+export default function blur() {
+    var bgBlur = $('.reviews__feedback-blur').css({
+            top: 0,
+            left: 0
+        }),
+        blurSection = $('.reviews'),
+		bgWidth = blurSection.width(),
+		bgHeight = blurSection.height(),
+        posLeft = blurSection.offset().left - bgBlur.offset().left,
+		posTop = blurSection.offset().top - bgBlur.offset().top,
+    	fHeight = $('.footer').height();
 
-    return {
-        init: function () {
-            var bgWidth = blurSection.width(),
-                posLeft = blurSection.offset().left - bgBlur.offset().left,
-                posTop = blurSection.offset().top - bgBlur.offset().top;
+    bgBlur.css({
+			top: posTop + fHeight,
+            left: posLeft,
+            width: bgWidth,
+            height: bgHeight
+        });
 
-            if ($(window).width()>1800){
-                $(bgBlur, blurSection).css('background-size', bgWidth + 'px');
-            }
-
-            bgBlur.css({
-                'background-position' : posLeft + 'px' + ' ' + posTop + 'px'
-            });
-        }
-    }
-
-})();
-
-if (loadScript('#page-works')) {
-    blur.init();
-
-    $(window).resize(function () {
-        blur.init();
-    });
 }
+
+

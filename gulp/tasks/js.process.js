@@ -2,8 +2,17 @@
 
 module.exports = function() {
   $.gulp.task('js:process', function() {
-    return $.gulp.src('source/js/app.js')
-      .pipe($.webpack($.webpackConfig)).on('error', $.gp.notify.onError({ title: 'JavaScript' }))
+	return $.gulp.src('source/js/*.js')
+	  .pipe($.gp.plumber({
+		  errorHandler: $.gp.notify.onError(function (error) {
+			return {
+			  title: 'JavaScript',
+			  message:  error.message
+			}
+		  })
+	  }))
+	  .pipe($.named())
+	  .pipe($.webpack($.webpackConfig))
       .pipe($.gulp.dest($.config.root + '/assets/js'))
   })
 };

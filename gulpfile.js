@@ -17,8 +17,8 @@ global.$ = {
   fs: require('fs'),
   webpack: require('webpack-stream'),
   webpackConfig: require('./webpack.config'),
+  named: require('vinyl-named'),
   isDevelopment: !process.env.NODE_ENV || process.env.NODE_ENV == 'development'
-
 };
 
 $.path.task.forEach(function(taskPath) {

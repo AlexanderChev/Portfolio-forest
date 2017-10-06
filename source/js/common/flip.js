@@ -1,24 +1,20 @@
 'use strict';
-export var flip = function () {
-    var flipBlock = function (evt) {
+export default function flip() {
+	$(window).on('click keydown', flipBlock);
+    function flipBlock(e) {
         var authBtn = $('.welcome__btn'),
-            flipWindow = $('.authorization');
-        var target = evt.target;
+            flipWindow = $('.authorization'),
+			target = e.target;
 
-        if (target.classList.contains('welcome__btn')) {
-            evt.preventDefault();
+        if ($(target).hasClass('welcome__btn')) {
+            e.preventDefault();
             flipWindow.addClass('authorization--flip');
             authBtn.animate({opacity: 0}, 400).css({'visibility': 'hidden'});
         } else {
-            if (target.id === 'backflip' || !target.closest('.authorization__back') || evt.keyCode === 27)  {
+            if (target.id === 'backflip' || !target.closest('.authorization__back') || e.keyCode === 27)  {
                 flipWindow.removeClass('authorization--flip');
                 authBtn.animate({opacity: 1}, 400).css({'visibility': 'visible'});
             }
-        }
-    };
-    return {
-        init: function () {
-            $(window).on('click keydown', flipBlock);
         }
     }
 };

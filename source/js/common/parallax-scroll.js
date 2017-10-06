@@ -1,26 +1,19 @@
 'use strict';
-var parScroll = (function () {
+export default function parallaxScroll() {
     var background = $('.header__bg'),
-        developer = $('.developer');
+		developer = $('.user');
 
-    return {
-        move: function (block, windowScroll, amount) {
-            var strafe = windowScroll / amount + '%',
-                transformString = 'translate3d(0,' + strafe + ',0)';
-
-            block.css('transform', transformString);
-        },
-
-        init: function (hScroll) {
-            this.move(background,hScroll, 20);
-            this.move(developer, hScroll, 30);
-        }
+	function move(block, windowScroll, amount) {
+        var strafe = windowScroll / amount + '%',
+            transformString = 'translate3d(0,' + strafe + ',0)';
+        block.css('transform', transformString);
     }
 
-})();
+	$(window).on('scroll', function () {
+		var hScroll = $(this).scrollTop();
 
-$(window).on('scroll', function () {
-    var hScroll = $(this).scrollTop();
+		move(background,hScroll, 20);
+		move(developer, hScroll, 30);
+	});
+};
 
-    parScroll.init(hScroll)
-});

@@ -23,6 +23,7 @@
 
 .article__title {
 	margin-top: 0;
+	margin-bottom: 20px;
 	font-family: $ff2;
 	font-size: 35px;
 	line-height: 1.17;
@@ -30,7 +31,6 @@
 }
 
 .article__date {
-	line-height: 2.56;
 	color: rgba(78, 136, 57, 0.7);
 }
 

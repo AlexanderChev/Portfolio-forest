@@ -1,0 +1,84 @@
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10000;
+	background: $bg-btn url("../img/preloader-bg.jpg") no-repeat center center;
+	background-size: cover;
+
+	&--no-js {
+		 display: none;
+	}
+}
+
+.preloader__wrapper {
+	@extend %block-center;
+	text-align: center;
+}
+
+.preloader__progress {
+	font-size: 4vmin;
+	font-weight: 500;
+    color: #fff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.preloader__waves {
+	display: block;
+    width: 80px;
+    height: 95px;
+    stroke: #fff;
+}
+
+$frame-width: 96;
+$part: .75;
+$dash-width: $frame-width * $part;
+$dash-margin: $frame-width - $dash-width;
+$animation-delay: 1.25s;
+
+.preloader__wave {
+	animation-name: wave-main, wave-main-main;
+    animation-duration: $animation-delay;
+    animation-timing-function: linear, ease-in-out;
+    animation-delay: 0s, $animation-delay;
+    animation-iteration-count: 1, infinite;
+    stroke: #fff;
+    stroke-width: 4;
+    stroke-dasharray: $frame-width;
+	stroke-dashoffset: $frame-width;
+
+	&--2 {
+		animation-delay: $animation-delay / 8, $animation-delay * 1.125;
+	}
+
+	&--3 {
+		animation-delay: $animation-delay / 4, $animation-delay * 1.25;
+	}
+}
+@keyframes wave-main {
+    0% {
+      stroke-dasharray: $dash-width $frame-width;
+      stroke-dashoffset: $dash-width;
+    }
+    50% {
+      stroke-dasharray: $dash-width $dash-width;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dasharray: $dash-width $dash-width;
+      stroke-dashoffset: -$dash-width - $dash-margin / 2;
+    }
+  }
+  @keyframes wave-main-main {
+    0% {
+      stroke-dasharray: $dash-width $dash-width;
+      stroke-dashoffset: $dash-width - $dash-margin / 2;
+    }
+    100% {
+      stroke-dasharray: $dash-width $dash-width;
+      stroke-dashoffset: -$dash-width - $dash-margin / 2;
+    }
+  }
+

@@ -35,33 +35,33 @@ block content
 
 
 			.reviews__feedback
-				.card
-					.card__blur
-					form#feedback(method="POST")
-						.card__content
-							h3.card__title.title.title--color-sage Связаться со мной
-							.feedback
-								input.feedback__input-text.field(
-									type="text"
-									name="name"
-									id="field-name"
-									placeholder="Имя"
-									required)
-								input.feedback__input-text.field(
-									type="email"
-									name="email"
-									id="field-email"
-									placeholder="Email"
-									required)
-								textarea.feedback__textarea.field(
-									type="text"
-									name="message"
-									id="field-message"
-									placeholder="Ваше сообщение"
-									required)
-						.card__btn-wrap
-							input.card__btn(type="submit" value="Отправить")
-							input.card__btn(type="reset" value="Очистить")
+				.reviews__feedback-wrap
+					.reviews__feedback-blur
+					.card
+						form#feedback(method="POST")
+							.card__content
+								h3.card__title.title.title--color-sage Связаться со мной
+								.feedback
+									input.feedback__input-text.field(
+										type="text"
+										name="name"
+										id="field-name"
+										placeholder="Имя"
+										required)
+									input.feedback__input-text.field(
+										type="email"
+										name="email"
+										id="field-email"
+										placeholder="Email"
+										required)
+									textarea.feedback__textarea.field(
+										name="message"
+										id="field-message"
+										placeholder="Ваше сообщение"
+										required)
+							.card__btn-wrap
+								input.card__btn(type="submit" value="Отправить")
+								input.card__btn(type="reset" value="Очистить")
 
 			a(href=`#${href}` class='reviews__arrow-link arrow-link arrow-link--up')
 				+icon-svg("arrow_down")(class="arrow-link__icon")

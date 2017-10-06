@@ -1,16 +1,54 @@
 .reviews {
-	margin-bottom: -208px;
-	padding-bottom: 208px;//TODO:определение высоты футера на js
+	position: relative;
 	text-align: center;
-	background: #f4f5f0 url("../img/reviews-bg-large.jpg") no-repeat center bottom;
+	background: #f4f5f0  url("../img/reviews-bg-mobile.jpg") no-repeat center bottom;
 	background-size: auto;
 
-	@include tablet {
+	@media (min-width: 321px) {
 		background-image: url("../img/reviews-bg-tablet.jpg");
 	}
 
-	@include mobile {
-		background-image: url("../img/reviews-bg-mobile.jpg");
+	@media (min-width: 769px) {
+		background-image: url("../img/reviews-bg-desktop.jpg");
+	}
+
+	@media (min-width: 1200px) {
+		background-image: url("../img/reviews-bg-large.jpg");
+	}
+}
+
+@include desktop {
+	.reviews__leaf-1,
+	.reviews__leaf-2,
+	.reviews__leaf-3 {
+		position: absolute;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: auto;
+	}
+
+	.reviews__leaf-1 {
+		top: 82px;
+		left: 37px;
+		width: 99px;
+		height: 91px;
+		background-image: url("../img/leaf1.png");
+	}
+
+	.reviews__leaf-2 {
+		top: 521px;
+		right: 7px;
+		width: 141px;
+		height: 120px;
+		background-image: url("../img/leaf2.png");
+	}
+
+	.reviews__leaf-3 {
+		top: 642px;
+		left: 172px;
+		width: 58px;
+		height: 108px;
+		background-image: url("../img/leaf3.png");
 	}
 }
 
@@ -44,4 +82,36 @@
 .reviews__feedback,
 .reviews__arrow-link {
 	margin-bottom: 70px;
+}
+
+.reviews__feedback-wrap {
+	position: relative;
+	display: inline-block;
+	border-radius: 5px;
+	overflow: hidden;
+	background: rgba(#fff, 0.5);
+}
+
+.reviews__feedback-blur {
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+     filter: blur(10px);
+	background: url("../img/reviews-bg-mobile.jpg") no-repeat center bottom;
+	background-size: auto;
+
+	@media (min-width: 321px) {
+		background-image: url("../img/reviews-bg-tablet.jpg");
+	}
+
+	@media (min-width: 769px) {
+		background-image: url("../img/reviews-bg-desktop.jpg");
+	}
+
+	@media (min-width: 1200px) {
+		background-image: url("../img/reviews-bg-large.jpg");
+	}
+
 }

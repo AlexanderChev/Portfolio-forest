@@ -26,6 +26,7 @@
     "gulp-load-plugins": "1.2.0",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-notify": "2.2.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.0.3",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "2.2.0",
@@ -39,19 +40,20 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
-    "normalize.css": "^4.1.1",
     "body-parser": "~1.15.2",
-    "cookie-parser": "~1.4.3",
     "connect-mongo": "^1.2.1",
+    "cookie-parser": "~1.4.3",
+    "crypto": "0.0.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
-    "morgan": "~1.7.0",
-    "pug": "^2.0.0-beta6",
-    "mongoose": "^4.7.1",
-    "serve-favicon": "~2.3.0",
     "express-session": "^1.14.0",
-    "nodemailer": "^2.7.0",
+    "mongoose": "^4.7.1",
+    "morgan": "~1.7.0",
     "multiparty": "^4.1.2",
-    "crypto": "0.0.3"
+    "nodemailer": "^2.7.0",
+    "normalize.css": "^4.1.1",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "~2.3.0",
+    "vinyl-named": "^1.1.0"
   }
 }
