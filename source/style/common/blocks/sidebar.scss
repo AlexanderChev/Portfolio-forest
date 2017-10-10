@@ -18,6 +18,19 @@
 
 	@include desktop {
 		width: 300px;
+		padding-bottom: 30px;
+
+		&--fixed {
+			position: fixed;
+			left: 0;
+			width: 30%;
+
+			& .sidebar__list {
+				position: absolute;
+				right: 0;
+				width: 300px;
+			}
+		}
 	}
 }
 
@@ -55,7 +68,7 @@
 	line-height: 1.63;
 	text-align: right;
 	color: $c-sage;
-	transition: 0.4s;
+	transition: color 0.4s;
 
 	&:hover {
 		color: $bg-hover;

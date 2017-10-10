@@ -12,8 +12,8 @@ export default function parallaxScroll() {
 	$(window).on('scroll', function () {
 		var hScroll = $(this).scrollTop();
 
-		move(background,hScroll, 20);
-		move(developer, hScroll, 30);
+		move(background, hScroll, 30);
+		move(developer, -hScroll, 40);
 	});
 };
 

@@ -8,6 +8,8 @@ import parallaxScroll from './common/parallax-scroll';
 import blur from './common/blur';
 import moveFooter from './common/move-footer';
 import parallaxLeafs from './common/parallax-leafs';
+import sidebar from './common/sidebar';
+import swipeSidebar from './common/swipe-sidebar';
 
 localSvg(window, document);
 preloader();
@@ -29,6 +31,11 @@ if (loadScript('.contacts')) {
     window.onload = window.onresize = function () {
         moveFooter('.footer');
     }
+}
+
+if (loadScript('.blog')) {
+    sidebar();
+    swipeSidebar();
 }
 
 if (loadScript('.authorization')) {

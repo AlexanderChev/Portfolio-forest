@@ -1,19 +1,10 @@
 'use strict';
-var sidebarBlog = (function () {
+export default function sidebar() {
     var sidebar = $('.sidebar'),
         sidebarLink = sidebar.find('.sidebar__link');
 
-    var init = function () {
-        _setUpListners();
-    };
-
-    var _setUpListners = function () {
-        sidebarLink.on('click', _scrollArticle);
-        $(window).on('scroll', _moveSidebar);
-    };
-
-    var _scrollArticle = function (evt) {
-        evt.preventDefault();
+    var _scrollArticle = function (e) {
+        e.preventDefault();
         var position = $(this).attr('href');
 
         $('html, body').stop().animate({
@@ -21,13 +12,13 @@ var sidebarBlog = (function () {
         }, 700, 'swing');
     };
 
-    var _moveSidebar = function (evt) {
+    var _moveSidebar = function (e) {
         var hSidebarTop = $('.blog__sidebar').offset().top,
             hScroll = $(window).scrollTop(),
-            hSidebarBottom = $('.footer').offset().top - sidebar.outerHeight();
+            hSidebarBottom = hSidebarTop + $('.blog__sidebar').height();
 
-        $('.article').map(function (index, article) {
-            var articleTop = $(article).offset().top - 100,
+        $('.article').each(function (index, article) {
+            var articleTop = $(article).offset().top - 400,
                 currentId = $(article).attr('id');
 
             if (articleTop < hScroll) {
@@ -39,46 +30,20 @@ var sidebarBlog = (function () {
 
             if (hScroll >= hSidebarBottom && $(window).width() > 768) {
                 sidebar.css({'position': 'absolute', 'top': hSidebarBottom + 'px'});
-            }else if (hScroll >= hSidebarTop && $(window).width() > 768) {
-                sidebar.css({'position': 'fixed', 'top': 0 + 'px'}).addClass('sidebar--fixed');
-            }else {
+            } else if (hScroll >= hSidebarTop && $(window).width() > 768) {
+                sidebar.css({'position': 'fixed', 'top': 50 + 'px'}).addClass('sidebar--fixed');
+            } else {
                 sidebar.css({'position': 'relative'}).removeClass('sidebar--fixed');
                 if ($(window).width() <= 768) {
-                    sidebar.css({'position': 'fixed'});
+                    sidebar.css({'position': 'fixed', 'top': 0});
                 }
-            }
-
-            if ($(window).width() <= 768) {
-                var swipeWidth = 100,
-                    swipeStartX = 0,
-                    swipeEndX = 0;
-
-                $(window).on('touchstart', function (evt) {
-                    var touch = evt.originalEvent.touches[0] || event.originalEvent.changedTouches[0],
-                        swipeStartX = touch.pageX;
-                });
-
-                $(window).on('touchend', function (evt) {
-                    var touch = evt.originalEvent.touches[0] || event.originalEvent.changedTouches[0],
-                        swipeEndX = touch.pageX;
-
-                    if (swipeEndX - swipeStartX > swipeWidth && !sidebar.hasClass('sidebar--active'))
-                        sidebar.addClass('sidebar--active');
-                    else if (swipeEndX - swipeStartX < -swipeWidth && sidebar.hasClass('sidebar--active'))
-                        sidebar.removeClass('sidebar--active');
-                });
             }
         });
     };
 
-    return {
-        init: init
-    };
-})();
-
-if (loadScript('#page-blog')) {
-   sidebarBlog.init();
-}
+    sidebarLink.on('click', _scrollArticle);
+    $(window).on('scroll', _moveSidebar);
+};
 
 
 
