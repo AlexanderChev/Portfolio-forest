@@ -47,20 +47,26 @@ block content
 										name="name"
 										id="field-name"
 										placeholder="Имя"
-										required)
+										data-error-content="Вы не ввели имя"
+										required
+									)
 									input.feedback__input-text.field(
 										type="email"
 										name="email"
 										id="field-email"
 										placeholder="Email"
-										required)
+										data-error-content="Вы не ввели email"
+										required
+									)
 									textarea.feedback__textarea.field(
 										name="message"
 										id="field-message"
 										placeholder="Ваше сообщение"
-										required)
+										data-error-content="Вы не ввели сообщение"
+										required
+									)
 							.card__btn-wrap
-								input.card__btn(type="submit" value="Отправить")
+								input.card__btn#feedback-submit(type="submit" value="Отправить")
 								input.card__btn(type="reset" value="Очистить")
 
 			a(href=`#${href}` class='reviews__arrow-link arrow-link arrow-link--up')

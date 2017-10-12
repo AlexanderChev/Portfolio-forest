@@ -28,7 +28,9 @@ block content
 								name="login"
 								id="login"
 								placeholder="Логин"
-								required)
+								data-error-content="Введите логин"
+								required
+								)
 							.authorization__icon-wrap
 								+icon-svg('login')(class="authorization__icon authorization__icon-login")
 
@@ -38,7 +40,9 @@ block content
 								name="password"
 								id="password"
 								placeholder="Пароль"
-								required)
+								data-error-content="Введите пароль"
+								required
+								)
 							.authorization__icon-wrap
 								+icon-svg("password")(class="authorization__icon authorization__icon-password")
 
@@ -46,7 +50,8 @@ block content
 							type="checkbox"
 							name="isHuman"
 							id="is-human"
-							required)
+							required
+							)
 						label.authorization__label-checkbox.checkbox(for="is-human") Я человек
 
 						p.authorization__text Вы точно не робот?
@@ -55,7 +60,8 @@ block content
 							type="radio"
 							name="captcha"
 							id="norobot-yes"
-							required)
+							required
+							)
 						label.authorization__label-radio.radio(for="norobot-yes") Да
 
 						input.authorization__input-radio(
@@ -63,12 +69,13 @@ block content
 							name="captcha"
 							id="norobot-no"
 							required
-							checked)
+							checked
+							)
 						label.authorization__label-radio.radio(for="norobot-no") Нет
 
 					.authorization__nav
 						a.authorization__nav-link#backflip(href="#") На главную
-						input.authorization__nav-link(type="submit" value="Войти")
+						input.authorization__nav-link#auth-submit(type="submit" value="Войти")
 
 		.welcome__footer
 			p.welcome__footer-copyrigth &#169; Александр Егоричев | создано с любовью в LoftSchool | 2016

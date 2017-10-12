@@ -10,6 +10,10 @@ import moveFooter from './common/move-footer';
 import parallaxLeafs from './common/parallax-leafs';
 import sidebar from './common/sidebar';
 import swipeSidebar from './common/swipe-sidebar';
+import feedback from './common/feedback';
+import auth from './common/auth';
+import map from './common/map';
+import animateSvgProgress from './common/svg-circle';
 
 localSvg(window, document);
 preloader();
@@ -27,10 +31,16 @@ if (loadScript('.reviews')) {
     parallaxLeafs();
 }
 
+if (loadScript('#feedback')) {
+    feedback();
+}
+
 if (loadScript('.contacts')) {
     window.onload = window.onresize = function () {
         moveFooter('.footer');
-    }
+    };
+    google.maps.event.addDomListener(window, 'load', map);
+    animateSvgProgress();
 }
 
 if (loadScript('.blog')) {
@@ -40,17 +50,10 @@ if (loadScript('.blog')) {
 
 if (loadScript('.authorization')) {
 	flip();
+	auth();
 }
 
 
 function loadScript(elem) {
     return $(elem).length;
 }
-
-$.extend($.fancybox.defaults, {
-    helpers: {
-        overlay: {
-            locked: false
-        }
-    }
-});

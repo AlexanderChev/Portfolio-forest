@@ -7,10 +7,15 @@ block variables
 	-
 		var href = "about"
 
+block scripts
+	script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCtbRGoprUTdJzPe-nIebN9IaebPhA5hEk' defer)
+	script(src='./assets/js/foundation.js' defer)
+	script(src='./assets/js/app.js' defer)
+
 block triangle-header
 	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle">
-		<polygon class = 'header__triangle-left header__triangle--bg-gray' points='0,0   0,86   500.8,86   500.8,75.5'></polygon>
-		<polygon class = 'header__triangle-right header__triangle--bg-light' points='1000,0   1000,86   500,86   500,75.5'></polygon>
+		<polygon class = 'header__triangle-left header__triangle-left--bg-gray' points='0,0   0,86   500.8,86   500.8,75.5'></polygon>
+		<polygon class = 'header__triangle-right header__triangle-right--bg-light' points='1000,0   1000,86   500,86   500,75.5'></polygon>
 
 block content
 	section.about#about
@@ -35,7 +40,7 @@ block content
 						ul.skills__list
 							each val in item.name
 								li.skills__item
-									.circle-progress(data-percent="58" data-time="2000")
+									.circle-progress(data-percent="58" data-duration="2000")
 										svg.circle-progress__pic
 											circle(class="circle-progress__item circle-progress__item--outer" cx="50%" cy="50%" r="50%")
 											circle(class="circle-progress__item circle-progress__item--inner" cx="50%" cy="50%" r="50%")
@@ -43,25 +48,25 @@ block content
 
 	section.contacts
 		.contacts__map#map
-			.card.contacts__card
-				.card__content
-					h2.card__title.title.title--color-sage Контакты
-					address.address
-						ul.address__list
-							li.address__item
-								span.address__icon
-									+icon-svg("skype")
-								a(class="address__link" href="skype:Alexander Chev" target="_blank") Alexander Chev
+		.card.contacts__card
+			.card__content
+				h2.card__title.title.title--color-sage Контакты
+				address.address
+					ul.address__list
+						li.address__item
+							span.address__icon
+								+icon-svg("skype")
+							a(class="address__link" href="skype:Alexander Chev" target="_blank") Alexander Chev
 
-							li.address__item
-								span.address__icon
-									+icon-svg("envelope")
-								a(class="address__link" href="mailto:alexchev92@gmail.com" target="_blank") alexchev92@gmail.com
-							li.address__item
-								span.address__icon
-									+icon-svg("phone")
-								a(class="address__link" href="tel:89108189723" target="_blank") 8 910 818 97 23
-							li.address__item
-								span.address__icon
-									+icon-svg("map_marker")
-								a.address__link Ярославль
+						li.address__item
+							span.address__icon
+								+icon-svg("envelope")
+							a(class="address__link" href="mailto:alexchev92@gmail.com" target="_blank") alexchev92@gmail.com
+						li.address__item
+							span.address__icon
+								+icon-svg("phone")
+							a(class="address__link" href="tel:89108189723" target="_blank") 8 910 818 97 23
+						li.address__item
+							span.address__icon
+								+icon-svg("map_marker")
+							a.address__link Ярославль

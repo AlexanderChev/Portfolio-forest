@@ -1,39 +1,30 @@
 'use strict';
-var auth = (function () {
-    var _authorization = function (evt) {
-        evt.preventDefault();
+
+import validate from './validate';
+import ajaxForm from './ajax';
+import dialogue from './dialogue';
+
+export default function auth() {
+    var _submitForm = function (e) {
+        e.preventDefault();
+
         var form = $(this).closest('#authorization'),
-            url = '/auth',
-            data = form.serialize();
+            url = '/auth';
 
-        if (validate.validateForm(form)) {
-            _ajaxForm(data, url);
+        if (validate(form)) {
+            var responce = ajaxForm(form, url);
+            responce.done(function (res) {
+                if (res.error) {
+                    var message = $('<p />', { text: res.error}),
+                        btn = $('<button />', { text: 'Закрыть', 'class': 'btn btn--bg-green' });
+
+                    dialogue( message.add(btn) );
+                } else {
+                    window.location.href = '/admin';
+                }
+            });
         }
     };
 
-    var _ajaxForm = function (data, url){
-            $.ajax({
-            type: "POST",
-            url: url,
-            dataType: 'json',
-            cache: false,
-            data: data
-        }).done(function(response){
-            if(response.error) {
-                $.fancybox('<h1>' + response.error + '</h1>');
-            }else  {
-                window.location.href = '/admin';
-            }
-        }).fail(function(){
-            $.fancybox('<h1>Ошибка соединения с сервером</h1>');
-        });
-    };
-
-    return {
-        init: function () {
-            $('.auth-window__submit').on('click', _authorization);
-        }
-    }
-})();
-
-auth.init();
+    $('#auth-submit').on('click', _submitForm);
+};

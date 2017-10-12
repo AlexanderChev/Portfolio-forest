@@ -4,7 +4,6 @@ export default function moveFooter(element, target, callback) {
     element = element instanceof jQuery ? element : $(element);
 
     var elementHeight = Math.ceil(element.height());
-    console.log(elementHeight);
     element.css('margin-top', '-' + elementHeight + 'px');
 
     if (target) {

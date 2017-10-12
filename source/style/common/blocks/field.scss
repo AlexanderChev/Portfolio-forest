@@ -13,6 +13,14 @@
 	outline: none;
 	transition: $dur-hover;
 
+	&--error {
+		border-color: $bg-error;
+
+		& + div svg {
+			fill: $bg-error;
+		}
+	}
+
 	&:focus {
 		border-color: $bg-btn;
 	}

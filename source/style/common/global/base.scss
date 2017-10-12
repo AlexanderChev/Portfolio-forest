@@ -325,3 +325,34 @@ input[type='reset'] {
 	animation: bounceIn 1s;
 	animation-fill-mode: forwards;
 }
+
+.qtip-custom-red {
+	padding: 5px 0;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 5px;
+	background-color: $bg-error;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.dialogue {
+	width: 280px;
+	padding: 10px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+	border: none;
+
+	.qtip-content {
+		font-size: 16px;
+		line-height: 1.5;
+		color: $c-text;
+		text-align: center;
+	}
+
+	.btn {
+		width: 90px;
+		margin: 0 auto;
+		border-radius: 5px;
+	}
+}

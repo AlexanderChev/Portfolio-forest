@@ -4,20 +4,17 @@ export default function parallaxLeafs() {
         leaf2 = $('.reviews__leaf-2'),
         leaf3 = $('.reviews__leaf-3');
 
-    function move(block, windowScroll, amount) {
+    var _move = function (block, windowScroll, amount) {
         var strafe = windowScroll / amount + '%',
             transformString = 'translate3d(0,' + strafe + ',0)';
-        console.log(windowScroll);
-        
+
         block.css('transform', transformString);
-    }
-    console.log($(window).scrollTop());
-    console.log(startMove);
-    console.log($(window).height());
+    };
+
     $(window).on('scroll', function () {
         var hScroll = $(window).scrollTop() + $(window).height() - startMove;
-        move(leaf1, -hScroll, 10);
-        move(leaf2, -hScroll, 5);
-        move(leaf3, -hScroll, 15);
+        _move(leaf1, -hScroll, 10);
+        _move(leaf2, -hScroll, 5);
+        _move(leaf3, -hScroll, 15);
     });
 };

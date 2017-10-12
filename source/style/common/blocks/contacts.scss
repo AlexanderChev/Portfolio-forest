@@ -10,12 +10,12 @@
 .contacts__map {
 	width: 100%;
 	height: 100%;
-	//background: red;
 }
 
 .contacts__card {
 	@include centered-align(horizontal);
 	top: 230px;
+	z-index: 100;
 	background-color: rgba(#f4f5f0, 0.85);
 
 	@include desktop-only {

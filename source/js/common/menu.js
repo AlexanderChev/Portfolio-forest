@@ -9,7 +9,7 @@ export default function menu() {
 
 			if (menu.hasClass('open')) {
 				items.each(function(item) {
-					$(this).find('.navigation__link').removeClass('bounceIn');
+					$(this).removeClass('bounceIn');
 				});
 			}
 
@@ -21,7 +21,7 @@ export default function menu() {
 			var counter = 0;
 
 			function req() {
-				$(items[counter]).find('.navigation__link').addClass('bounceIn');
+				$(items[counter]).addClass('bounceIn');
 				counter++;
 
 				if (counter < items.length) {
