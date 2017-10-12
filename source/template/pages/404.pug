@@ -1,0 +1,18 @@
+block title
+    title Ошибка
+
+doctype html
+html
+    include ../common/head
+    body
+        main
+            .error
+                .error__wrapper
+                    if error
+                        .error__code= error.code
+                        .error__message= error.message
+                    else
+                        .error__code 500
+                        .error__message Ошибка сервера
+
+                    a.error__link(href='/') Вернутся на сайт

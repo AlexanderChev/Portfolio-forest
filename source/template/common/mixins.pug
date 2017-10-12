@@ -9,12 +9,6 @@ mixin social(items)
 				a.social__link(href="" target="_blank")= title
 					+icon-svg(id)(class=`social__icon social__icon--${id}`)
 
-mixin list(items)
-	ul(class=attributes.class)
-		each href, title in items
-			li(class=`${attributes.class}__item`)
-				a(class=`${attributes.class}__link` href=href)= title
-
 mixin nav(items)
 	ul.navigation(class=attributes.class)
 		each href, title in items

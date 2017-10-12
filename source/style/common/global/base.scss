@@ -226,6 +226,7 @@ textarea {
 
 html {
 	box-sizing: border-box;
+	width: 100%;
 	height: 100%;
 	font-size: 14px;
 	@include desktop {
@@ -245,6 +246,7 @@ html {
 body {
 	position: relative;
 	min-width: 320px;
+	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;

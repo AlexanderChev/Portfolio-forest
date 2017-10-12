@@ -1,0 +1,67 @@
+extends ../layout
+include ../common/mixins
+
+block title
+	title Админ-панель
+
+block content
+	.admin
+		.admin__header
+			h1.admin__header-title Панель администрирования
+			a.admin__header-link(href="/") Вернуться на сайт
+
+		input.admin__input-radio#tab-1(type="radio", name="tab" checked)
+		input.admin__input-radio#tab-2(type="radio", name="tab")
+		input.admin__input-radio#tab-3(type="radio", name="tab")
+
+		ul.admin__tabs-controls
+			li.admin__control-item
+				label.admin__control-link(for="tab-1") Обо мне
+			li.admin__control-item
+				label.admin__control-link(for="tab-2") Блог
+			li.admin__control-item
+				label.admin__control-link(for="tab-3") Мои работы
+		ul.admin__tabs-list
+			li.admin__tab(data-tab="1")
+				h2.admin__tab-title Страница «Обо мне»
+					form.admin__form-skills(method="POST")
+						each skillsGroup, skillsTitle in skills
+							.admin__skills-group
+								h3.admin__skills-title= skillsTitle
+								each value, skill in skillsGroup
+									label(for=`field-${skill}` class="admin__skills-label")
+										span=skill
+										input(
+											type="text"
+											id=`field-${skill}`
+											name=`${skill}`
+											class="admin__skills-input" value=`${value}`
+											)
+										| %
+									br
+						input.admin__submit#skills-submit(type="submit" value="Сохранить")
+			li.admin__tab(data-tab="2")
+				h2.admin__tab-title Страница «Блог»
+					form.admin__form-blog(method='POST')
+						h3.admin__form-title Добавить запись
+						p.admin__input-wrap
+							input.admin__input-blog(type='text' name='postName' placeholder='Название')
+						p.admin__input-wrap
+							input.admin__input-blog(type='text' name='postDate' placeholder='Дата')
+						p.admin__input-wrap
+							textarea.admin__input-blog(name='postBody' cols='30', rows='10' placeholder='Содержание')
+						input.admin__submit#post-submit(type='submit' value='Добавить')
+			li.admin__tab(data-tab="3")
+				h2.admin__tab-title Страница «Мои работы»
+					form.admin__form-works(method='POST' enctype="multipart/form-data")
+						h3.admin__form-title Добавить работу
+						p.admin__input-wrap
+							input.admin__input-works(type='text' name='workName' placeholder='Название проекта')
+						p.admin__input-wrap
+							input.admin__input-works(type='text' name='workTech' placeholder='Технологии')
+						p.admin__input-wrap
+							input.admin__input-works(type='text' name='workLink' placeholder='Ссылка')
+						p.admin__input-wrap
+							label.admin__label-file(for='admin__field-file') Загрузить картинку
+								input.admin__input-works(type='file' name='workFile' id='admin__field-file')
+						input.admin__submit#works-submit(type='submit' value='Добавить')
