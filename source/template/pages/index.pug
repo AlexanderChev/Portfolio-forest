@@ -1,14 +1,14 @@
 extends ../layout
 
 block variables
-	- var index = 'index'
+	- var index = "index"
 
 block title
 	title Личный сайт веб разработчика
 
 block content
 	.welcome
-		a.welcome__btn.btn(href='#') Авторизоваться
+		a.welcome__btn.btn(href="#") Авторизоваться
 		.authorization.welcome__authorization
 			.authorization__front
 				.authorization__content
@@ -32,7 +32,7 @@ block content
 								required
 								)
 							.authorization__icon-wrap
-								+icon-svg('login')(class="authorization__icon authorization__icon-login")
+								+icon-svg("login")(class="authorization__icon authorization__icon-login")
 
 						label.authorization__label(for="password")
 							input.authorization__input-text.field(

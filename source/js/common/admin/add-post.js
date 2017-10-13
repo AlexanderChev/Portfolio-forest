@@ -1,24 +1,25 @@
 'use strict';
 
-var addPost = (function () {
-    var _submitForm = function (evt) {
-        evt.preventDefault();
-        console.log('отправка');
-        var form = $(this),
-            url = '/admin/post',
-            data = form.serialize();
+import ajaxForm from '../ajax';
+import validate from '../validate';
 
-        if (validate.validateForm(form)) {
-            console.log(data);
-            ajaxForm(data, url);
-        }
-    };
+export default function addPost() {
+	var _submitForm = function (e) {
+		e.preventDefault();
 
-    return {
-        init: function () {
-            $('.admin__form-blog').on('submit', _submitForm);
-        }
-    }
-})();
+		var form = $(this).closest('#form-post'),
+			url = '/post',
+			data = form.serialize();
 
-addPost.init();
+		if (validate(form)) {
+			console.log(data);
+			var responce = ajaxForm(data, url);
+			responce.done(function (res) {
+				modalInit();
+			});
+		}
+
+	};
+
+	$('#post-submit').on('click', _submitForm);
+};

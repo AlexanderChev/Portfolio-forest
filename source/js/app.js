@@ -15,45 +15,46 @@ import auth from './common/auth';
 import map from './common/map';
 import animateSvgProgress from './common/svg-circle';
 
-localSvg(window, document);
-preloader();
-scrollTo();
+(function () {
+	localSvg(window, document);
+	preloader();
+	scrollTo();
 
-if (loadScript('.header')) {
-	menu();
-    parallaxScroll();
-}
+	if (loadScript('.header')) {
+		menu();
+		parallaxScroll();
+	}
 
-if (loadScript('.reviews')) {
-    window.onload = window.onresize = function () {
-        moveFooter('.footer', '.reviews', blur);
-    };
-    parallaxLeafs();
-}
+	if (loadScript('.reviews')) {
+		window.onload = window.onresize = function () {
+			moveFooter('.footer', '.reviews', blur);
+		};
+		parallaxLeafs();
+	}
 
-if (loadScript('#feedback')) {
-    feedback();
-}
+	if (loadScript('#feedback')) {
+		feedback();
+	}
 
-if (loadScript('.contacts')) {
-    window.onload = window.onresize = function () {
-        moveFooter('.footer');
-    };
-    google.maps.event.addDomListener(window, 'load', map);
-    animateSvgProgress();
-}
+	if (loadScript('.contacts')) {
+		window.onload = window.onresize = function () {
+			moveFooter('.footer');
+		};
+		google.maps.event.addDomListener(window, 'load', map);
+		animateSvgProgress();
+	}
 
-if (loadScript('.blog')) {
-    sidebar();
-    swipeSidebar();
-}
+	if (loadScript('.blog')) {
+		sidebar();
+		swipeSidebar();
+	}
 
-if (loadScript('.authorization')) {
-	flip();
-	auth();
-}
+	if (loadScript('.authorization')) {
+		flip();
+		auth();
+	}
 
-
-function loadScript(elem) {
-    return $(elem).length;
-}
+	function loadScript(elem) {
+		return $(elem).length;
+	}
+})();

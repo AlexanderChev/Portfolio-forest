@@ -12,7 +12,8 @@ export default function flip() {
             authBtn.animate({opacity: 0}, 400).css({'visibility': 'hidden'});
         }
 
-        if (target.id === 'backflip' || e.keyCode === 27)  {//|| !target.closest('.authorization__back')
+		if (target.id === 'backflip' || e.keyCode === 27)  {//|| !target.closest('.authorization__back')
+			$('.field--error').trigger('hide');
             flipWindow.removeClass('authorization--flip');
             authBtn.animate({opacity: 1}, 400).css({'visibility': 'visible'});
         }

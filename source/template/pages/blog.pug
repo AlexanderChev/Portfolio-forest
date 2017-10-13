@@ -10,8 +10,8 @@ block headerPortfolio
 
 block triangle-header
 	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="header__triangle header__triangle--bg-blog">
-	<polygon class = 'header__triangle-left' points='0,0   0,86   500.8,86   500.8,75.5'></polygon>
-	<polygon class = 'header__triangle-right' points='1000,0   1000,86   500,86   500,75.5'></polygon>
+	<polygon class = "header__triangle-left" points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
+	<polygon class = "header__triangle-right" points="1000,0   1000,86   500,86   500,75.5"></polygon>
 
 block user
 	+user()
@@ -27,12 +27,12 @@ block content
 				a.sidebar__toggle(href="#")
 				ul.sidebar__list
 					each item, i in (items)? items : articlesList
-						li(class='sidebar__item')
-							a(class='sidebar__link' + ((i == 0)? ' sidebar__link--active': '') href=`#article-${i+1}`)= item.title
+						li(class="sidebar__item")
+							a(class="sidebar__link" + ((i == 0)? " sidebar__link--active": "") href=`#article-${i+1}`)= item.title
 
 		.blog__articles
 				each item, i in (items)? items : articlesList
-					article(class='article blog__article' id=`article-${i+1}`)
+					article(class="article blog__article" id=`article-${i+1}`)
 						h2.article__title= item.title
 						time.article__date= item.date
 						.article__content

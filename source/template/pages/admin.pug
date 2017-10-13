@@ -4,6 +4,10 @@ include ../common/mixins
 block title
 	title Админ-панель
 
+block scripts
+			script(src="./assets/js/foundation.js")
+			script(src="./assets/js/admin.js")
+
 block content
 	.admin
 		.admin__header
@@ -24,7 +28,7 @@ block content
 		ul.admin__tabs-list
 			li.admin__tab(data-tab="1")
 				h2.admin__tab-title Страница «Обо мне»
-					form.admin__form-skills(method="POST")
+					form.admin__form-skills#form-skills(method="POST")
 						each skillsGroup, skillsTitle in skills
 							.admin__skills-group
 								h3.admin__skills-title= skillsTitle
@@ -35,33 +39,78 @@ block content
 											type="text"
 											id=`field-${skill}`
 											name=`${skill}`
+											data-group=`${skillsTitle}`
+											data-error-content="Введите число"
+											min="0"
+											max="100"
 											class="admin__skills-input" value=`${value}`
+											required
 											)
 										| %
 									br
 						input.admin__submit#skills-submit(type="submit" value="Сохранить")
 			li.admin__tab(data-tab="2")
 				h2.admin__tab-title Страница «Блог»
-					form.admin__form-blog(method='POST')
+					form.admin__form-blog#form-post(method="POST")
 						h3.admin__form-title Добавить запись
 						p.admin__input-wrap
-							input.admin__input-blog(type='text' name='postName' placeholder='Название')
+							input.admin__input-blog(
+								type="text"
+								name="postName"
+								placeholder="Название"
+								data-error-content="Введите название"
+								)
 						p.admin__input-wrap
-							input.admin__input-blog(type='text' name='postDate' placeholder='Дата')
+							input.admin__input-blog(
+								type="text"
+								name="postDate"
+								placeholder="Дата"
+								data-error-content="Введите дату"
+								)
 						p.admin__input-wrap
-							textarea.admin__input-blog(name='postBody' cols='30', rows='10' placeholder='Содержание')
-						input.admin__submit#post-submit(type='submit' value='Добавить')
+							textarea.admin__input-blog(
+								name="postBody"
+								cols="30",
+								rows="10"
+								placeholder="Содержание"
+								data-error-content="Введите текст"
+								)
+						input.admin__submit#post-submit(type="submit" value="Добавить")
 			li.admin__tab(data-tab="3")
 				h2.admin__tab-title Страница «Мои работы»
-					form.admin__form-works(method='POST' enctype="multipart/form-data")
+					form.admin__form-works#form-works(method="POST" enctype="multipart/form-data")
 						h3.admin__form-title Добавить работу
 						p.admin__input-wrap
-							input.admin__input-works(type='text' name='workName' placeholder='Название проекта')
+							input.admin__input-works(
+								type="text"
+								name="workName"
+								placeholder="Название проекта"
+								data-error-content="Введите название"
+								required
+								)
 						p.admin__input-wrap
-							input.admin__input-works(type='text' name='workTech' placeholder='Технологии')
+							input.admin__input-works(
+								type="text"
+								name="workTech"
+								placeholder="Технологии"
+								data-error-content="Введите технологии"
+								required
+								)
 						p.admin__input-wrap
-							input.admin__input-works(type='text' name='workLink' placeholder='Ссылка')
+							input.admin__input-works(
+								type="text"
+								name="workLink"
+								placeholder="Ссылка"
+								data-error-content="Введите ссылку"
+								required
+								)
 						p.admin__input-wrap
-							label.admin__label-file(for='admin__field-file') Загрузить картинку
-								input.admin__input-works(type='file' name='workFile' id='admin__field-file')
-						input.admin__submit#works-submit(type='submit' value='Добавить')
+							label.admin__label-file(for="admin__field-file") Загрузить картинку
+								input.admin__input-works(
+									type="file"
+									name="workFile"
+									id="admin__field-file"
+									data-error-content="Загрузить картинку"
+									required
+									)
+						input.admin__submit#works-submit(type="submit" value="Добавить")

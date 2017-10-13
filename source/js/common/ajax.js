@@ -1,7 +1,8 @@
-import dialogue from './dialogue';
+'use strict';
 
-export default function ajaxForm(form, url){
-    var data = form.serialize();
+import modalInit from './modal';
+
+export default function ajaxForm(data, url){
     var result = $.ajax({
             type: "POST",
             url: url,
@@ -9,10 +10,7 @@ export default function ajaxForm(form, url){
             data: data
         }).fail(function (res) {
             console.log(res.status + '   ' +  res.statusText);
-            var message = $('<p />', { text: 'Ошибка соединения с сервером!'}),
-                btn = $('<button />', { text: 'Закрыть', 'class': 'btn btn--bg-green' });
-
-            dialogue( message.add(btn) );
+			modalInit('Ошибка соединения с сервером!', 'Закрыть');
         });
 
     return result;
