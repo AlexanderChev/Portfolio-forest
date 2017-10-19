@@ -2,13 +2,14 @@
 
 import qTip from '../qTip';
 import ajaxForm from '../ajax';
+import modalInit from '../modal';
 
 export default function setSkills() {
 	var _submitForm = function (e) {
 		e.preventDefault();
 
 		var form = $(this).closest('#form-skills'),
-			url = '/skills',
+			url = '/admin/skills',
 			data = {},
 			valid = true;
 
@@ -38,11 +39,10 @@ export default function setSkills() {
 		});
 
 		if (valid) {
-			data = JSON.stringify(data);
 			console.log(data);
 			var responce = ajaxForm(data, url);
 			responce.done(function (res) {
-				modalInit();
+				modalInit(res.message);
 			});
 		}
 

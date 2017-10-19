@@ -6,10 +6,10 @@
 	},
 
 	"navList" : {
-		"Мои работы": "works",
-		"Обо мне": "about",
-		"Блог": "blog",
-		"Авторизация": "index"
+		"Мои работы": "works.html",
+		"Обо мне": "about.html",
+		"Блог": "blog.html",
+		"Авторизация": "index.html"
 	},
 
 	"reviews": {

@@ -2,6 +2,7 @@
 
 import validate from './validate';
 import ajaxForm from './ajax';
+import modalInit from './modal';
 
 export default function feedback() {
 

@@ -2,8 +2,11 @@
 
 import validate from './validate';
 import ajaxForm from './ajax';
+import modalInit from './modal';
 
 export default function auth() {
+	var login = $('#login'),
+		password = $('#password');
     var _submitForm = function (e) {
         e.preventDefault();
 
@@ -16,7 +19,7 @@ export default function auth() {
             var responce = ajaxForm(data, url);
             responce.done(function (res) {
                 if (res.error) {
-					modalInit('text: res.error', 'Закрыть')
+					modalInit(res.error, 'Закрыть')
                 } else {
 					localStorage.setItem('login', login.val());
                     window.location.href = '/admin';
@@ -28,8 +31,6 @@ export default function auth() {
 	$('#auth-submit').on('click', _submitForm);
 	$('document').ready(function () {
 		var storage = localStorage.getItem('login');
-			login = $('#login'),
-			password = $('#password');
 
 		if (storage) {
 			login.val(storage);

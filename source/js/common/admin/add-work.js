@@ -8,7 +8,7 @@ export default function addWork() {
 		e.preventDefault();
 
         var form = $(this).closest('#form-works'),
-            url = '/works',
+            url = '/admin/work',
             data = new FormData(form[0]);
 
         if (validate(form)) {
@@ -20,7 +20,12 @@ export default function addWork() {
 				processData: false,
 				contentType: false
 			}).done(function(response){
-				modalInit(responce.message);
+				console.log(response);
+				if (response.error) {
+					modalInit(response.error);
+				} else {
+					modalInit(response.message);
+				}
 			}).fail(function(){
 				modalInit('Ошибка соединения с сервером', 'Закрыть');
 			});

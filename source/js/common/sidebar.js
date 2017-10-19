@@ -18,10 +18,11 @@ export default function sidebar() {
             hSidebarBottom = hSidebarTop + $('.blog__sidebar').height();
 
         $('.article').each(function (index, article) {
-            var articleTop = $(article).offset().top - 400,
+			var articleTop = $(article).offset().top - 200,
+				articleBottom = $(article).height() + articleTop,
                 currentId = $(article).attr('id');
 
-            if (articleTop < hScroll) {
+            if (articleTop < hScroll && articleBottom > hScroll) {
                 sidebarLink
                     .removeClass('sidebar__link--active')
                     .filter('[href="#' + currentId + '"]')
