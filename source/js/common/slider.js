@@ -1,127 +1,115 @@
-'use strict';
-var slider = (function() {
-    var downBtn = $(".slider__control-prev");
-    var upBtn = $(".slider__control-next");
-    var slide = $(".slider__display");
-    var description = $(".slider__content");
-    var counterDown = 0;
-    var counterUp = 2;
-    var counterSlide = 1;
+"use strict";
 
-    var itemsDown = downBtn.find('.slider__thumbnails-item'),
-        itemsUp = upBtn.find('.slider__thumbnails-item'),
-        itemsSlide = slide.find('.slider__works-item'),
-        itemsDescr = description.find('.slider__content-item');
+export default function slider() {
+    var counter = 0,
+        duration = 300,
+        flag = true,
+        items = $('.slider__item'),
+        image = $('.slider__display-img'),
+        sliderTitle = $('.slider__title'),
+        sliderTech = $('.slider__skills'),
+        sliderBtn = $('.slider__btn'),
+        controlPrev = $('.slider__controls-item--prev'),
+        controlNext = $('.slider__controls-item--next'),
+        activeSlide,
+        prevSlide,
+        nextSlide;
 
-    function toggleSlide(activeSlide, reqSlide, activeDesc, reqDesc) {
-        //Скрытие активного слайда
-        activeSlide.fadeOut(700);
-        // //Появление требуемого слайда
-        reqSlide.fadeIn(700);
-        //Удаление класса у бывшего активного слайда
-        activeSlide.removeClass('slider__works-item--active');
-        //Добавление активного класса требуемому слайду
-        reqSlide.addClass('slider__works-item--active');
-        //Добавление требуемому описанию слайда активного класса
-        reqDesc.addClass('slider__content-item--active');
-        //Удаление класса у активного описания слайда
-        activeDesc.removeClass('slider__content-item--active');
+    function init() {
+        setIndexSlide();
+        changeSlide();
     }
 
-    return {
-        init: function () {
-            downBtn.on('click', function(evt) {
-                evt.preventDefault();
-
-                counterDown--;
-                counterUp--;
-                counterSlide--;
-
-                var activeItemDown = downBtn.find('.slider__thumbnails-item--active'),
-                    activeItemUp = upBtn.find('.slider__thumbnails-item--active'),
-                    activeItemSlide = slide.find('.slider__works-item--active'),
-                    activeItemDescr = description.find('.slider__content-item--active');
-
-                if (counterDown < 0) counterDown = itemsDown.length-1;
-                if (counterUp < 0) counterUp = itemsUp.length-1;
-                if (counterSlide < 0) counterSlide = itemsUp.length-1;
-
-                var reqItemDown = itemsDown.eq(counterDown),
-                    reqItemUp = itemsUp.eq(counterUp),
-                    reqItemSlide = itemsSlide.eq(counterSlide),
-                    reqItemDescr = itemsDescr.eq(counterSlide);
-
-                activeItemDown.animate({
-                    'top': '100%'
-                }, 200);
-                activeItemUp.animate({
-                    'top' : '-100%'
-                }, 200);
-
-                toggleSlide(activeItemSlide, reqItemSlide, activeItemDescr, reqItemDescr);
-
-                reqItemDown.animate({
-                    'top' : '0'
-                }, 200, function() {
-                    activeItemDown.removeClass('slider__thumbnails-item--active').css('top', '-100%');
-                    reqItemDown.addClass('slider__thumbnails-item--active');
-                });
-                reqItemUp.animate({
-                    'top' : '0'
-                }, 200, function() {
-                    activeItemUp.removeClass('slider__thumbnails-item--active').css('top', '100%');
-                    reqItemUp.addClass('slider__thumbnails-item--active');
-                });
-            });
-
-            upBtn.on('click', function(evt) {
-                evt.preventDefault();
-
-                counterDown++;
-                counterUp++;
-                counterSlide++;
-
-                var activeItemDown = downBtn.find('.slider__thumbnails-item--active'),
-                    activeItemUp = upBtn.find('.slider__thumbnails-item--active'),
-                    activeItemSlide = slide.find('.slider__works-item--active'),
-                    activeItemDescr = description.find('.slider__content-item--active');
-
-                if (counterUp >= itemsUp.length) {
-                    counterUp = 0;
-                }
-                if (counterDown >= itemsDown.length) counterDown = 0;
-                if (counterSlide >= itemsDown.length) counterSlide = 0;
-
-                var reqItemDown = itemsDown.eq(counterDown),
-                    reqItemUp = itemsUp.eq(counterUp),
-                    reqItemSlide = itemsSlide.eq(counterSlide),
-                    reqItemDescr = itemsDescr.eq(counterSlide);
-
-                activeItemDown.animate({
-                    'top': '100%'
-                }, 200);
-                activeItemUp.animate({
-                    'top' : '-100%'
-                }, 200);
-
-                toggleSlide(activeItemSlide, reqItemSlide, activeItemDescr, reqItemDescr);
-
-                reqItemDown.animate({
-                    'top' : '0'
-                }, 200, function() {
-                    activeItemDown.removeClass('slider__thumbnails-item--active').css('top', '-100%');
-                    reqItemDown.addClass('slider__thumbnails-item--active');
-                });
-
-                reqItemUp.animate({
-                    'top' : '0'
-                }, 200, function() {
-                    activeItemUp.removeClass('slider__thumbnails-item--active').css('top', '100%');
-                    reqItemUp.addClass('slider__thumbnails-item--active');
-                });
-            });
+    function setCounter (num) {
+        if (num < 0) {
+            num = items.length - 1;
+        } else if (num > items.length - 1) {
+            num = 0;
         }
+        console.log(num);
+        return num;
     }
-}());
 
-slider.init();
+    function setIndexSlide() {
+        var prevIndex = setCounter(counter - 1),
+            nextIndex = setCounter(counter + 1);
+
+        activeSlide = items.eq(counter);
+        prevSlide = items.eq(prevIndex);
+        nextSlide = items.eq(nextIndex);
+    }
+
+    function changeBackground(elem, background) {
+        elem.css('background-image', 'url("' + background + '")');
+        return elem;
+    }
+
+    function movePreviewSlide(container, direction, background) {
+        var previewCurrent = container.find('.slider__preview--current'),
+            previewNext = container.find('.slider__preview--next'),
+            direction = direction == 'down' ? 100: -100;
+
+        changeBackground(previewNext, background).animate({
+            top: '0%'
+        }, duration, function () {
+            $(this).css('top', -direction + '%');
+        });
+
+        previewCurrent.animate({
+            top: direction + '%'
+        }, duration, function () {
+            changeBackground($(this), background).css('top', '0');
+            flag = true;
+        });
+    }
+
+    $.fn.animateText = function(string) {
+        string = string ? string : this.text();
+        return this.each(function(){
+            var $this = $(this);
+            $this.html(string.replace(/./g, '<span class="opacityHide">$&</span>'));
+            $this.find('span.opacityHide').each(function(i, el){
+                setTimeout(function(){ $(el).addClass('bounceIn'); }, 20 * i);
+            });
+        });
+    };
+
+    function changeText() {
+        sliderTitle.animateText(activeSlide.data('name'));
+        sliderTech.animateText(activeSlide.data('tech'));
+        sliderBtn.attr('href', activeSlide.data('link'));
+    }
+
+    function changeSlide() {
+        image.fadeOut(duration, function () {
+            $(this).attr('src', activeSlide.data('picture')).fadeIn();
+        });
+        changeText();
+        movePreviewSlide(controlPrev, 'down', prevSlide.data('picture'));
+        movePreviewSlide(controlNext, 'up', nextSlide.data('picture'));
+
+    }
+
+    $(window).load(init);
+    $('.slider__controls-item').on('click', function (e) {
+        e.preventDefault();
+        var
+            $this = $(this);
+
+        if (flag) {
+            flag = false;
+            if ($this.hasClass('slider__controls-item--prev')) {
+                counter = setCounter(--counter);
+                setIndexSlide();
+                changeSlide();
+            }
+
+            if ($this.hasClass('slider__controls-item--next')) {
+                counter = setCounter(++counter);
+                setIndexSlide();
+                changeSlide();
+            }
+        }
+
+    });
+};

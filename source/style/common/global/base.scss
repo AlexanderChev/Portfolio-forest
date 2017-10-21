@@ -329,6 +329,10 @@ input[type='reset'] {
 	}
 }
 
+.opacityHide {
+	opacity: 0;
+}
+
 .bounceIn {
 	animation: bounceIn 1s;
 	animation-fill-mode: forwards;

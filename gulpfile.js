@@ -29,7 +29,7 @@ $.gulp.task('default', $.gulp.series(
   'clean',
   $.gulp.parallel(
     'sass',
-    'copy:pug',
+    'pug',
     'js:foundation',
     'js:process',
     'copy:image',

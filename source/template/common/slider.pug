@@ -1,18 +1,29 @@
+- var items = items ? items : works
 .slider
 	.slider__display
-		img(src="./assets/img/works/2.png", alt="")
+		img.slider__display-img(src=`${items[0].picture}`)
+		ul.slider__list.visuallyhidden
+			each item, i in items
+				li.slider__item(
+					data-picture=`${item.picture}`
+					data-name=`${item.name}`
+					data-tech=`${item.tech}`
+					data-link=`${item.link}`
+					)
 	.slider__info
 		.slider__content-wrap
-			h3.title.title--color-sage.title--sub.slider__title Сайт школы онлайн Образования
-			.slider__skills HTML , CSS, JAVASCRIPT
-			a.btn.btn--bg-green.slider__btn(href="#")
+			h3.title.title--color-sage.title--sub.slider__title=items[0].name
+			.slider__skills=items[0].tech
+			a.btn.btn--bg-green.slider__btn(href=`${items[0].link}`)
 				+icon-svg("link").btn__icon
 				|Посмотреть сайт
 	.slider__controls
 		a(href="#" class="slider__controls-item slider__controls-item--prev")
-			img(src="./assets/img/works/1.png", alt="")
+			.slider__preview.slider__preview--next
+			.slider__preview.slider__preview--current
 			+icon-svg("arrow_down").slider__controls-icon
 		a(href="#" class="slider__controls-item slider__controls-item--next")
-			img(src="./assets/img/works/3.png", alt="")
+			.slider__preview.slider__preview--next
+			.slider__preview.slider__preview--current
 			+icon-svg("arrow_down").slider__controls-icon
 

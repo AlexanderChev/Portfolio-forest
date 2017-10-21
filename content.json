@@ -78,20 +78,97 @@
 		}
 	],
 
-	"skillsList" : [
+	"skills" : [
 		{
-			"title": "Frontend",
-			"name": ["HTML5", "CSS3", "JavaScript  & jQuery"]
+			"category": "Frontend",
+			"items": [
+				{
+					"name" : "HTML5",
+					"value" : "90"
+				},
+
+				{
+					"name" : "CSS3",
+					"value" : "90"
+				},
+
+				{
+					"name" : "JavaScript  & jQuery",
+					"value" : "60"
+				}
+			]
 		},
 
 		{
-			"title": "Backend",
-			"name": ["PHP", "mySQL", "Node.js  & npm", "Mongo.db"]
+			"category": "Backend",
+			"items": [
+				{
+					"name" : "PHP",
+					"value" : "60"
+				},
+
+				{
+					"name" : "mySQL",
+					"value" : "60"
+				},
+
+				{
+					"name" : "Node.js  & npm",
+					"value" : "60"
+				},
+
+				{
+					"name" : "Mongo.db",
+					"value" : "60"
+				}
+			]
 		},
 
 		{
-			"title": "WorkFlow",
-			"name": ["Git", "Gulp", "Bower"]
+			"category": "WorkFlow",
+			"items": [
+				{
+					"name" : "Git",
+					"value" : "60"
+				},
+
+				{
+					"name" : "Gulp",
+					"value" : "60"
+				},
+
+				{
+					"name" : "Bower",
+					"value" : "60"
+				}
+			]
+		}
+	],
+
+	"works" : [
+		{
+			"name" : "work1",
+			"tech" : "css3, html5, js",
+			"link" : "link",
+			"picture" : "./assets/img/works/1.png"
+		},
+		{
+			"name" : "work2",
+			"tech" : "css3, html5, js",
+			"link" : "link",
+			"picture" : "./assets/img/works/2.png"
+		},
+		{
+			"name" : "work3",
+			"tech" : "css3, html5, js",
+			"link" : "link",
+			"picture" : "./assets/img/works/3.png"
+		},
+		{
+			"name" : "work4",
+			"tech" : "css3, html5, js",
+			"link" : "link",
+			"picture" : "./assets/img/works/4.png"
 		}
 	]
 

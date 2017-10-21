@@ -14,6 +14,7 @@ import feedback from './common/feedback';
 import auth from './common/auth';
 import map from './common/map';
 import animateSvgProgress from './common/svg-circle';
+import slider from './common/slider';
 
 (function () {
 	localSvg(window, document);
@@ -30,6 +31,7 @@ import animateSvgProgress from './common/svg-circle';
 			moveFooter('.footer', '.reviews', blur);
 		};
 		parallaxLeafs();
+		slider();
 	}
 
 	if (loadScript('#feedback')) {

@@ -90,7 +90,7 @@ router.post('/work', (req, res) => {
 			let newFilePath = config.http.upload + `/${work._id}${path.extname(image.path)}`;
 			fs.writeFileSync(path.resolve(__dirname, '../' + config.http.publicRoot + newFilePath), fs.readFileSync(image.path));
 
-            return Model.update({ _id: work._id}, { $set: {picture: newFilePath}});
+            return Model.update({ _id: work._id}, { $set: {picture: '../' + newFilePath}});
         }, e => {
             throw new Error(Object.keys(e.errors).map(key => e.errors[key].message).join(', '));
         }).then(

@@ -82,6 +82,7 @@ h3.slider__title.slider__title {
 .slider__controls-item {
 	position: relative;
 	width: 50%;
+	overflow: hidden;
 
 	&:after {
 		content: "";
@@ -95,21 +96,37 @@ h3.slider__title.slider__title {
 		background-color: rgba(176, 183, 170, 0.7);
 	}
 
+	&--prev {
+		& .slider__preview--next {
+			top: -100%;
+		}
+	}
+
 	&--next {
 		&:after {
 			background-color: rgba(147, 153, 141, 0.7);
+		}
+
+		& .slider__preview--next {
+			top: 100%;
 		}
 
 		& .slider__controls-icon {
 			transform: rotate(-180deg);
 		}
 	}
+}
 
-	img {
-		@extend %centered-auto;
-		max-width: 90%;
-		max-height: 90%;
-	}
+.slider__preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: 60% auto;
+	background-size: 60% auto;
 }
 
 .slider__controls-icon {

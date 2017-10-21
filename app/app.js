@@ -59,13 +59,7 @@ app.use('/mail', require('./routes/mail'));
 
 
 //---------------- errors-------------------------------//
-app.use((req,res,next) => res.status(404).send('Page not found!'));
-
-app.use((err,req,res,next) => {
-    res.status(500);
-    res.render('error', {error: err.message});
-    console.log(err.message, err.stack);
-});
+app.use((req,res,next) => res.status(404).render('404', {error: {status: '404', message: 'Page not found'}}));
 
 
 //---------------- Server----------------------------//

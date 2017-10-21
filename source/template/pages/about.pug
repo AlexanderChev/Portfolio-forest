@@ -34,6 +34,7 @@ block content
 			.skills
 				h2.title.title--sub.title--color-sage Чем я могу быть<br> вам полезен
 				p.skills__text  Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+				- var items = items ? items : skills
 				each group in items
 					.skills__group
 						h3.skills__group-title= group.category
@@ -41,7 +42,7 @@ block content
 							each item in group.items
 								li.skills__item
 									.circle-progress(data-percent=`${item.value}` data-duration="2000")
-										svg.circle-progress__pic
+										svg.circle-progress__pic(viewBox="0 0 115 115")
 											circle(class="circle-progress__item circle-progress__item--outer" cx="50%" cy="50%" r="50%")
 											circle(class="circle-progress__item circle-progress__item--inner" cx="50%" cy="50%" r="50%")
 										span.circle-progress__name= item.name
