@@ -12,18 +12,10 @@ router.get('/', (req, res, next) => {
     if (!req.session.isReg) {
         res.redirect('/');
     } else {
-		//TODO: реализовать рендеринг админки-скилов по данным из БД (дата и значения)
-		let Model = mongoose.model('skills');
-		Model.find().then(items => {
-			let skills = items.reduce((prev, cur) => {
-				prev[cur.category] = cur.items.reduce((prev, cur) => {
-					prev[cur.name] = cur.value;
-					return prev;
-				}, {});
-				return prev;
-			},{});
-		});
-        res.render('admin');
+        let Model = mongoose.model('skills');
+        Model.find().then(items => {
+            res.render('admin', {items : items});
+        });
     }
 });
 

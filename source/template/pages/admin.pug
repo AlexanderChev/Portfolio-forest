@@ -29,21 +29,22 @@ block content
 			li.admin__tab(data-tab="1")
 				h2.admin__tab-title Страница «Обо мне»
 					form.admin__form-skills#form-skills(method="POST")
-						each skillsGroup, skillsTitle in skills
+						- var items = items ? items : skills
+						each group in items
 							.admin__skills-group
-								h3.admin__skills-title= skillsTitle
-								each value, skill in skillsGroup
-									label(for=`field-${skill}` class="admin__skills-label")
-										span=skill
+								h3.admin__skills-title= group.category
+								each item in group.items
+									label(for=`field-${item.name}` class="admin__skills-label")
+										span= item.name
 										input(
 											type="text"
-											id=`field-${skill}`
-											name=`${skill}`
-											data-group=`${skillsTitle}`
+											id=`field-${item.name}`
+											name=`${item.name}`
+											data-group=`${group.category}`
 											data-error-content="Введите число"
 											min="0"
 											max="100"
-											class="admin__skills-input" value=`${value}`
+											class="admin__skills-input" value=`${item.value}`
 											required
 											)
 										| %

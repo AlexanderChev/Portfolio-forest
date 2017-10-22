@@ -15,9 +15,7 @@ router.get(['/','/index.html'], (req, res) => {
 //About
 router.get('/about.html', function (req, res) {
 	let Model = mongoose.model('skills');
-	console.log('dsfsd');
 	Model.find().then(items => {
-		console.log(items);
 		res.render('about', {items: items});
 	});
 
