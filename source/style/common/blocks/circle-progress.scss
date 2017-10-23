@@ -1,6 +1,5 @@
 .circle-progress {
 	position: relative;
-	opacity: 0;
 }
 
 .circle-progress__pic {
@@ -13,7 +12,7 @@
 
 .circle-progress__item {
 	fill: none;
-    stroke-width: 20px;
+    stroke-width: 25px;
 
 	&--outer {
 		stroke: #dfdcd5;

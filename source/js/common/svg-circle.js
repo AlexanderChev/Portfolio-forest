@@ -4,7 +4,7 @@ export default function animateSvgProgress() {
         startAnimation = container.find('.skills__group').offset().top,
         itemCircle = container.find('.circle-progress');
     console.log(itemCircle.length);
-
+    itemCircle.fadeOut();
     $(window).on('scroll', function () {
         if ($(window).scrollTop() + $(window).height() >= startAnimation) {
             itemCircle.each(function (index) {
@@ -12,7 +12,7 @@ export default function animateSvgProgress() {
                     percent = +$this.data('percent'),
                     duration = +$this.data('duration'),
                     toPercent = circleLength - circleLength / 100 * percent;
-                $this.animate({'opacity': 1}, duration / 2);
+                $this.fadeIn(duration);
                 $this.find('.circle-progress__item--inner').animate({'stroke-dashoffset': toPercent}, duration + index * 20);
             });
         }
